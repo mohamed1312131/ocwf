@@ -1,0 +1,215 @@
+{
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "professionals": "Professionals",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "preRegister": "Pre-registration"
+  },
+  "footer": {
+    "description": "Tunisian telemedicine and on-demand care platform for easy access to healthcare.",
+    "navigation": "Navigation",
+    "professionalsSection": "Professionals",
+    "advantages": "Advantages",
+    "contactSection": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms of Use",
+    "rights": "All rights reserved.",
+    "poweredBy": "Powered by OmniLinks"
+  },
+  "home": {
+    "hero": {
+      "title": "Your health, at your fingertips",
+      "subtitle": "Consult qualified healthcare professionals from home, 24/7",
+      "getStarted": "Get Started",
+      "learnMore": "Learn More"
+    },
+    "stats": {
+      "professionals": "Professionals",
+      "specialties": "Specialties",
+      "satisfaction": "Satisfaction",
+      "availability": "Availability"
+    },
+    "features": {
+      "title": "Why choose OmniCare?",
+      "subtitle": "A complete platform for your health needs",
+      "consultation": {
+        "title": "Online consultations",
+        "description": "Consult doctors and healthcare professionals by video, without traveling"
+      },
+      "appointment": {
+        "title": "Easy appointment booking",
+        "description": "Book your consultations in a few clicks, 24/7"
+      },
+      "professionals": {
+        "title": "Qualified professionals",
+        "description": "Access a network of certified and experienced healthcare professionals"
+      },
+      "secure": {
+        "title": "Secure and confidential",
+        "description": "Your health data is protected and confidential"
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Join thousands of users who trust OmniCare",
+      "button": "Create an account"
+    }
+  },
+  "features": {
+    "hero": {
+      "title": "Features",
+      "subtitle": "Discover everything OmniCare can do for you"
+    },
+    "videoConsultation": {
+      "title": "Video consultations",
+      "description": "Consult your healthcare professionals face-to-face via secure HD video"
+    },
+    "appointment": {
+      "title": "Appointment management",
+      "description": "Schedule, modify and track your appointments easily"
+    },
+    "medicalRecords": {
+      "title": "Medical records",
+      "description": "Access your medical history and prescriptions online"
+    },
+    "prescription": {
+      "title": "Electronic prescriptions",
+      "description": "Receive your prescriptions directly on the platform"
+    },
+    "payment": {
+      "title": "Secure payment",
+      "description": "Pay for your consultations securely online"
+    },
+    "notifications": {
+      "title": "Reminders and notifications",
+      "description": "Never miss an appointment with our automatic reminders"
+    }
+  },
+  "professionals": {
+    "hero": {
+      "title": "Join OmniCare",
+      "subtitle": "Grow your practice with telemedicine"
+    },
+    "benefits": {
+      "title": "Why join OmniCare?",
+      "flexibility": {
+        "title": "Total flexibility",
+        "description": "Manage your schedule as you wish"
+      },
+      "patients": {
+        "title": "More patients",
+        "description": "Access a larger patient base"
+      },
+      "tools": {
+        "title": "Professional tools",
+        "description": "Benefit from modern and efficient management tools"
+      },
+      "support": {
+        "title": "Dedicated support",
+        "description": "Receive personalized assistance"
+      }
+    },
+    "howItWorks": {
+      "title": "How does it work?",
+      "step1": {
+        "title": "Sign up",
+        "description": "Create your professional profile in minutes"
+      },
+      "step2": {
+        "title": "Verification",
+        "description": "Our team verifies your qualifications"
+      },
+      "step3": {
+        "title": "Configure",
+        "description": "Set your availability and rates"
+      },
+      "step4": {
+        "title": "Start",
+        "description": "Receive your first patients"
+      }
+    },
+    "cta": {
+      "title": "Ready to join us?",
+      "button": "Pre-registration"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About OmniCare",
+      "subtitle": "Our mission: making healthcare accessible to all"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "OmniCare was born from the desire to facilitate access to healthcare in Tunisia. We believe everyone should be able to consult a healthcare professional easily, wherever they are."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To become the leading telemedicine platform in Tunisia, offering quality services accessible to all."
+    },
+    "values": {
+      "title": "Our Values",
+      "quality": {
+        "title": "Quality",
+        "description": "Qualified professionals and impeccable service"
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "Healthcare for everyone, everywhere in Tunisia"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "The latest technologies serving your health"
+      },
+      "trust": {
+        "title": "Trust",
+        "description": "Guaranteed security and confidentiality"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have a question? Feel free to contact us",
+    "name": "Full Name",
+    "email": "Email Address",
+    "message": "Your Message",
+    "send": "Send",
+    "success": "Message sent successfully!",
+    "error": "Error sending. Please try again.",
+    "fillAll": "Please fill in all fields",
+    "invalidEmail": "Please enter a valid email address",
+    "captchaError": "Please verify that you are not a robot"
+  },
+  "preInscription": {
+    "title": "Professional Pre-registration",
+    "subtitle": "Join our network of healthcare professionals",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "dateOfBirth": "Date of Birth",
+    "profession": "Profession",
+    "selectProfession": "Select your profession",
+    "doctor": "Doctor",
+    "nurse": "Nurse",
+    "psychologist": "Psychologist",
+    "physiotherapist": "Physiotherapist",
+    "submit": "Submit Application",
+    "success": "Pre-registration sent successfully!",
+    "error": "Error sending. Please try again.",
+    "fillAll": "Please fill in all fields",
+    "invalidEmail": "Please enter a valid email address",
+    "invalidPhone": "Please enter a valid phone number",
+    "captchaError": "Please verify that you are not a robot"
+  },
+  "login": {
+    "title": "Admin Login",
+    "subtitle": "Access the OmniCare administration panel",
+    "username": "Username",
+    "password": "Password",
+    "signIn": "Sign In",
+    "error": "Incorrect username or password"
+  }
+}

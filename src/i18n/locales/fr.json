@@ -1,0 +1,265 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "professionals": "Professionnels",
+    "about": "À propos",
+    "contact": "Contact",
+    "login": "Connexion",
+    "preRegister": "Pré-inscription"
+  },
+  "footer": {
+    "description": "Plateforme tunisienne de télémédecine et soins à la demande pour un accès facilité aux soins de santé.",
+    "navigation": "Navigation",
+    "professionalsSection": "Professionnels",
+    "advantages": "Avantages",
+    "contactSection": "Contact",
+    "privacy": "Confidentialité",
+    "terms": "Conditions d'utilisation",
+    "rights": "Tous droits réservés.",
+    "poweredBy": "Powered by OmniLinks"
+  },
+  "home": {
+    "hero": {
+      "title": "Des soins médicaux à la demande",
+      "subtitle": "Connectez-vous avec des professionnels de santé vérifiés en Tunisie. Consultations en ligne, soins à domicile, suivi médical personnalisé.",
+      "getStarted": "Commencer",
+      "learnMore": "En savoir plus"
+    },
+    "stats": {
+      "professionals": "Professionnels",
+      "specialties": "Spécialités",
+      "satisfaction": "Satisfaction",
+      "availability": "Disponibilité"
+    },
+    "features": {
+      "title": "Pourquoi choisir OmniCare ?",
+      "subtitle": "Une plateforme complète pour vos besoins en santé",
+      "consultation": {
+        "title": "Consultations en ligne",
+        "description": "Consultez des médecins et professionnels de santé par vidéo, sans vous déplacer"
+      },
+      "appointment": {
+        "title": "Prise de rendez-vous facile",
+        "description": "Réservez vos consultations en quelques clics, 24h/24"
+      },
+      "professionals": {
+        "title": "Professionnels qualifiés",
+        "description": "Accédez à un réseau de professionnels de santé certifiés et expérimentés"
+      },
+      "secure": {
+        "title": "Sécurisé et confidentiel",
+        "description": "Vos données de santé sont protégées et confidentielles"
+      }
+    },
+    "cta": {
+      "title": "Prêt à commencer ?",
+      "subtitle": "Rejoignez notre plateforme et profitez de toutes ces fonctionnalités",
+      "button": "Créer un compte"
+    },
+    "mobileApp": {
+      "title": "Application mobile",
+      "description": "Gérez vos consultations et votre santé directement depuis votre smartphone.",
+      "comingSoonAppStore": "Bientôt disponible sur",
+      "comingSoonGooglePlay": "Bientôt disponible sur"
+    },
+    "ambulance": "Ambulance"
+  },
+  "features": {
+    "hero": {
+      "title": "Fonctionnalités",
+      "subtitle": "Découvrez tout ce qu'OmniCare peut faire pour vous"
+    },
+    "forPatients": "Pour les patients",
+    "videoConsultation": {
+      "title": "Consultations vidéo",
+      "description": "Consultez vos professionnels de santé en face à face par vidéo HD sécurisée"
+    },
+    "appointment": {
+      "title": "Gestion des rendez-vous",
+      "description": "Planifiez, modifiez et suivez vos rendez-vous facilement"
+    },
+    "medicalRecords": {
+      "title": "Dossier médical",
+      "description": "Accédez à votre historique médical et vos prescriptions en ligne"
+    },
+    "prescription": {
+      "title": "Ordonnances électroniques",
+      "description": "Recevez vos ordonnances directement sur la plateforme"
+    },
+    "payment": {
+      "title": "Paiement sécurisé",
+      "description": "Recevez vos paiements en toute sécurité en ligne"
+    },
+    "notifications": {
+      "title": "Rappels et notifications",
+      "description": "Ne manquez jamais un rendez-vous avec nos rappels automatiques"
+    }
+  },
+  "professionals": {
+    "hero": {
+      "title": "Rejoignez OmniCare",
+      "subtitle": "Développez votre pratique avec la télémédecine"
+    },
+    "professions": {
+      "doctor": "Toutes spécialités médicales",
+      "nurse": "Soins à domicile et téléconsultation",
+      "psychologist": "Thérapie en ligne et suivi psychologique",
+      "physiotherapist": "Rééducation et conseils à distance"
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "q1": "Quels sont les documents nécessaires pour l'inscription ?",
+      "a1": "Vous aurez besoin de votre diplôme, carte professionnelle, et pièce d'identité. Ces documents seront vérifiés lors du processus d'intégration.",
+      "q2": "Y a-t-il des frais d'inscription ?",
+      "a2": "Les tarifs seront communiqués lors de l'ouverture officielle des inscriptions. La pré-inscription est gratuite et sans engagement.",
+      "q3": "Comment sont fixés les tarifs des consultations ?",
+      "a3": "Vous définissez vous-même vos tarifs de consultation. OmniCare prélève une commission sur chaque consultation réalisée via la plateforme.",
+      "q4": "Puis-je gérer mon emploi du temps librement ?",
+      "a4": "Absolument. Vous contrôlez entièrement vos créneaux de disponibilité et pouvez les modifier à tout moment."
+    },
+    "benefits": {
+      "title": "Pourquoi rejoindre OmniCare ?",
+      "flexibility": {
+        "title": "Flexibilité totale",
+        "description": "Gérez votre emploi du temps comme vous le souhaitez"
+      },
+      "patients": {
+        "title": "Plus de patients",
+        "description": "Accédez à une base de patients plus large"
+      },
+      "tools": {
+        "title": "Outils professionnels",
+        "description": "Profitez d'outils de gestion modernes et efficaces"
+      },
+      "support": {
+        "title": "Support dédié",
+        "description": "Bénéficiez d'un accompagnement personnalisé"
+      }
+    },
+    "howItWorks": {
+      "title": "Trois étapes simples pour accéder à des soins de qualité",
+      "step1": {
+        "title": "Inscrivez-vous",
+        "description": "Créez votre profil professionnel en quelques minutes"
+      },
+      "step2": {
+        "title": "Vérification",
+        "description": "Notre équipe vérifie vos qualifications"
+      },
+      "step3": {
+        "title": "Configurez",
+        "description": "Définissez vos disponibilités et tarifs"
+      },
+      "step4": {
+        "title": "Commencez",
+        "description": "Recevez vos premiers patients"
+      }
+    },
+    "cta": {
+      "title": "Prêt à nous rejoindre ?",
+      "button": "Pré-inscription"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "À propos d'OmniCare",
+      "subtitle": "La première plateforme tunisienne de télémédecine"
+    },
+    "focus": {
+      "tunisia": {
+        "title": "Made in Tunisia",
+        "subtitle": "Une solution 100% tunisienne",
+        "description1": "OmniCare est conçue par des Tunisiens, pour les Tunisiens. Nous comprenons les spécificités du système de santé tunisien, les besoins locaux et les défis auxquels font face patients et professionnels.",
+        "description2": "Notre plateforme est adaptée au contexte tunisien : prise en charge en français et en arabe, intégration avec les systèmes de santé locaux, et partenariats avec les institutions médicales tunisiennes.",
+        "availability": "Disponibilité",
+        "secure": "Sécurisé"
+      }
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "description": "Révolutionner l'accès aux soins en Tunisie"
+    },
+    "vision": {
+      "title": "Notre Vision",
+      "description": "Devenir la plateforme de référence pour la télémédecine en Tunisie, en offrant des services de qualité accessibles à tous."
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "subtitle": "Les principes qui guident chacune de nos actions",
+      "quality": {
+        "title": "Qualité",
+        "description": "Des professionnels qualifiés et un service irréprochable"
+      },
+      "accessibility": {
+        "title": "Accessibilité",
+        "description": "La santé pour tous, partout en Tunisie"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Les dernières technologies au service de votre santé"
+      },
+      "trust": {
+        "title": "Confiance",
+        "description": "Sécurité et confidentialité garanties"
+      }
+    }
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "subtitle": "Une question ? Besoin d'aide ? Contactez-nous",
+    "formSubtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.",
+    "contactInfo": "Informations de contact",
+    "contactInfoDesc": "N'hésitez pas à nous contacter par l'un des moyens suivants. Nous vous répondrons dans les meilleurs délais.",
+    "phone": "Téléphone",
+    "location": "Localisation",
+    "customerSupport": "Support client",
+    "supportHours": "Notre équipe de support est disponible du lundi au vendredi de 9h à 18h pour répondre à toutes vos questions.",
+    "successMessage": "Merci de nous avoir contactés. Notre équipe vous répondra dans les plus brefs délais à l'adresse e-mail que vous avez fournie.",
+    "sendAnother": "Envoyer un autre message",
+    "name": "Nom complet",
+    "email": "Adresse e-mail",
+    "message": "Votre message",
+    "send": "Envoyer",
+    "success": "Message envoyé avec succès !",
+    "error": "Erreur lors de l'envoi. Veuillez réessayer.",
+    "fillAll": "Veuillez remplir tous les champs",
+    "invalidEmail": "Veuillez entrer une adresse e-mail valide",
+    "captchaError": "Veuillez vérifier que vous n'êtes pas un robot"
+  },
+  "preInscription": {
+    "title": "Rejoignez OmniCare en avant-première",
+    "subtitle": "Soyez parmi les premiers professionnels à intégrer notre plateforme",
+    "successTitle": "Merci pour votre pré-inscription !",
+    "successMessage": "Votre pré-inscription a bien été enregistrée. Notre équipe vous contactera dès l'ouverture officielle de la plateforme pour finaliser votre inscription et configurer votre profil professionnel.",
+    "emailConfirmation": "Vous recevrez un e-mail de confirmation à l'adresse :",
+    "backHome": "Retour à l'accueil",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "dateOfBirth": "Date de naissance",
+    "email": "Adresse e-mail",
+    "phone": "Numéro de téléphone",
+    "profession": "Profession",
+    "selectProfession": "Sélectionnez votre profession",
+    "doctor": "Médecin",
+    "nurse": "Infirmier(e)",
+    "psychologist": "Psychologue",
+    "physiotherapist": "Kinésithérapeute",
+    "submit": "Envoyer ma pré-inscription",
+    "success": "Pré-inscription envoyée avec succès !",
+    "error": "Erreur lors de l'envoi. Veuillez réessayer.",
+    "fillAll": "Veuillez remplir tous les champs",
+    "invalidEmail": "Veuillez entrer une adresse e-mail valide",
+    "invalidPhone": "Veuillez entrer un numéro de téléphone valide",
+    "captchaError": "Veuillez vérifier que vous n'êtes pas un robot",
+    "privacyNote": "En soumettant ce formulaire, vous acceptez d'être contacté par OmniCare concernant l'ouverture de la plateforme. Vos données sont protégées et ne seront jamais partagées avec des tiers."
+  },
+  "login": {
+    "title": "Connexion Admin",
+    "subtitle": "Accédez au panneau d'administration OmniCare",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "signIn": "Se connecter",
+    "error": "Identifiant ou mot de passe incorrect"
+  }
+}

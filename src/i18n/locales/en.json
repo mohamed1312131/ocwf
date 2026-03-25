@@ -1,0 +1,265 @@
+{
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "professionals": "Professionals",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "preRegister": "Pre-registration"
+  },
+  "footer": {
+    "description": "Tunisian telemedicine and on-demand care platform for easy access to healthcare.",
+    "navigation": "Navigation",
+    "professionalsSection": "Professionals",
+    "advantages": "Advantages",
+    "contactSection": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms of Use",
+    "rights": "All rights reserved.",
+    "poweredBy": "Powered by OmniLinks"
+  },
+  "home": {
+    "hero": {
+      "title": "On-demand medical care",
+      "subtitle": "Connect with verified healthcare professionals in Tunisia. Online consultations, home care, personalized medical follow-up.",
+      "getStarted": "Get Started",
+      "learnMore": "Learn More"
+    },
+    "stats": {
+      "professionals": "Professionals",
+      "specialties": "Specialties",
+      "satisfaction": "Satisfaction",
+      "availability": "Availability"
+    },
+    "features": {
+      "title": "Why choose OmniCare?",
+      "subtitle": "A complete platform for your health needs",
+      "consultation": {
+        "title": "Online consultations",
+        "description": "Consult doctors and healthcare professionals by video, without traveling"
+      },
+      "appointment": {
+        "title": "Easy appointment booking",
+        "description": "Book your consultations in a few clicks, 24/7"
+      },
+      "professionals": {
+        "title": "Qualified professionals",
+        "description": "Access a network of certified and experienced healthcare professionals"
+      },
+      "secure": {
+        "title": "Secure and confidential",
+        "description": "Your health data is protected and confidential"
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Join our platform and enjoy all these features",
+      "button": "Create an account"
+    },
+    "mobileApp": {
+      "title": "Mobile Application",
+      "description": "Manage your consultations and health directly from your smartphone.",
+      "comingSoonAppStore": "Coming soon on",
+      "comingSoonGooglePlay": "Coming soon on"
+    },
+    "ambulance": "Ambulance"
+  },
+  "features": {
+    "hero": {
+      "title": "Features",
+      "subtitle": "Discover everything OmniCare can do for you"
+    },
+    "forPatients": "For patients",
+    "videoConsultation": {
+      "title": "Video consultations",
+      "description": "Consult your healthcare professionals face-to-face via secure HD video"
+    },
+    "appointment": {
+      "title": "Appointment management",
+      "description": "Schedule, modify and track your appointments easily"
+    },
+    "medicalRecords": {
+      "title": "Medical records",
+      "description": "Access your medical history and prescriptions online"
+    },
+    "prescription": {
+      "title": "Electronic prescriptions",
+      "description": "Receive your prescriptions directly on the platform"
+    },
+    "payment": {
+      "title": "Secure payment",
+      "description": "Receive payments for your consultations securely online"
+    },
+    "notifications": {
+      "title": "Reminders and notifications",
+      "description": "Never miss an appointment with our automatic reminders"
+    }
+  },
+  "professionals": {
+    "hero": {
+      "title": "Join OmniCare",
+      "subtitle": "Grow your practice with telemedicine"
+    },
+    "professions": {
+      "doctor": "All medical specialties",
+      "nurse": "Home care and teleconsultation",
+      "psychologist": "Online therapy and psychological follow-up",
+      "physiotherapist": "Rehabilitation and remote advice"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "What documents are required for registration?",
+      "a1": "You will need your diploma, professional card, and ID. These documents will be verified during the integration process.",
+      "q2": "Are there any registration fees?",
+      "a2": "Rates will be communicated when official registration opens. Pre-registration is free and without commitment.",
+      "q3": "How are consultation rates set?",
+      "a3": "You set your own consultation rates. OmniCare takes a commission on each consultation conducted via the platform.",
+      "q4": "Can I manage my schedule freely?",
+      "a4": "Absolutely. You have full control over your availability slots and can modify them at any time."
+    },
+    "benefits": {
+      "title": "Why join OmniCare?",
+      "flexibility": {
+        "title": "Total flexibility",
+        "description": "Manage your schedule as you wish"
+      },
+      "patients": {
+        "title": "More patients",
+        "description": "Access a larger patient base"
+      },
+      "tools": {
+        "title": "Professional tools",
+        "description": "Benefit from modern and efficient management tools"
+      },
+      "support": {
+        "title": "Dedicated support",
+        "description": "Receive personalized assistance"
+      }
+    },
+    "howItWorks": {
+      "title": "Three simple steps to access quality care",
+      "step1": {
+        "title": "Sign up",
+        "description": "Create your professional profile in minutes"
+      },
+      "step2": {
+        "title": "Verification",
+        "description": "Our team verifies your qualifications"
+      },
+      "step3": {
+        "title": "Configure",
+        "description": "Set your availability and rates"
+      },
+      "step4": {
+        "title": "Start",
+        "description": "Receive your first patients"
+      }
+    },
+    "cta": {
+      "title": "Ready to join us?",
+      "button": "Pre-registration"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About OmniCare",
+      "subtitle": "The first Tunisian telemedicine platform"
+    },
+    "focus": {
+      "tunisia": {
+        "title": "Made in Tunisia",
+        "subtitle": "A 100% Tunisian solution",
+        "description1": "OmniCare is designed by Tunisians, for Tunisians. We understand the specificities of the Tunisian healthcare system, local needs and the challenges faced by patients and professionals.",
+        "description2": "Our platform is adapted to the Tunisian context: support in French and Arabic, integration with local health systems, and partnerships with Tunisian medical institutions.",
+        "availability": "Availability",
+        "secure": "Secure"
+      }
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "Revolutionizing access to healthcare in Tunisia"
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To become the leading telemedicine platform in Tunisia, offering quality services accessible to all."
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The principles that guide each of our actions",
+      "quality": {
+        "title": "Quality",
+        "description": "Qualified professionals and impeccable service"
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "Healthcare for everyone, everywhere in Tunisia"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "The latest technologies serving your health"
+      },
+      "trust": {
+        "title": "Trust",
+        "description": "Guaranteed security and confidentiality"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have a question? Need help? Contact us",
+    "formSubtitle": "Fill out the form below and we will respond quickly.",
+    "contactInfo": "Contact Information",
+    "contactInfoDesc": "Feel free to contact us by any of the following means. We will respond as soon as possible.",
+    "phone": "Phone",
+    "location": "Location",
+    "customerSupport": "Customer Support",
+    "supportHours": "Our support team is available Monday to Friday from 9am to 6pm to answer all your questions.",
+    "successMessage": "Thank you for contacting us. Our team will respond to you as soon as possible at the email address you provided.",
+    "sendAnother": "Send another message",
+    "name": "Full Name",
+    "email": "Email Address",
+    "message": "Your Message",
+    "send": "Send",
+    "success": "Message sent successfully!",
+    "error": "Error sending. Please try again.",
+    "fillAll": "Please fill in all fields",
+    "invalidEmail": "Please enter a valid email address",
+    "captchaError": "Please verify that you are not a robot"
+  },
+  "preInscription": {
+    "title": "Join OmniCare Early Access",
+    "subtitle": "Be among the first professionals to join our platform",
+    "successTitle": "Thank you for your pre-registration!",
+    "successMessage": "Your pre-registration has been successfully recorded. Our team will contact you as soon as the platform officially opens to finalize your registration and set up your professional profile.",
+    "emailConfirmation": "You will receive a confirmation email at:",
+    "backHome": "Back to home",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "dateOfBirth": "Date of Birth",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "profession": "Profession",
+    "selectProfession": "Select your profession",
+    "doctor": "Doctor",
+    "nurse": "Nurse",
+    "psychologist": "Psychologist",
+    "physiotherapist": "Physiotherapist",
+    "submit": "Submit my pre-registration",
+    "success": "Pre-registration sent successfully!",
+    "error": "Error sending. Please try again.",
+    "fillAll": "Please fill in all fields",
+    "invalidEmail": "Please enter a valid email address",
+    "invalidPhone": "Please enter a valid phone number",
+    "captchaError": "Please verify that you are not a robot",
+    "privacyNote": "By submitting this form, you agree to be contacted by OmniCare regarding the platform opening. Your data is protected and will never be shared with third parties."
+  },
+  "login": {
+    "title": "Admin Login",
+    "subtitle": "Access the OmniCare administration panel",
+    "username": "Username",
+    "password": "Password",
+    "signIn": "Sign In",
+    "error": "Incorrect username or password"
+  }
+}

@@ -1,0 +1,6 @@
+/* Remove background images on desktop for mission cards */
+@media (min-width: 1024px) {
+  .mission-card-mobile-bg {
+    background-image: none !important;
+  }
+}
