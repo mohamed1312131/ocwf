@@ -7,8 +7,7 @@ COPY . .
 RUN npm run build
 
 # Serve stage
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/templates/default.conf.template
-EXPOSE 80
-CMD ["/bin/sh", "-c", "envsubst '$PORT' < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
+FROM node:20-alpine
+RUN npm install -g serve
+COPY --from=build /app/dist /dist
+CMD ["sh", "-c", "serve -s /dist -l ${PORT:-3000}"]
