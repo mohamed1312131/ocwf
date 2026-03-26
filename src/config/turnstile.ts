@@ -19,8 +19,7 @@
  */
 
 // Use test key for localhost development, production key for deployment
-export const TURNSTILE_SITE_KEY = '1x00000000000000000000AA'; // Test key (always passes)
-// Production key: 0x4AAAAAACtXYK5ypU3kp-JP (use when deploying)
+export const TURNSTILE_SITE_KEY = '0x4AAAAAACtXYK5ypU3kp-JP'; // Production key
 
 /**
  * Options de configuration pour le widget Turnstile
