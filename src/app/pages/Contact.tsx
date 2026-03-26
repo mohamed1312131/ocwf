@@ -3,14 +3,11 @@ import { motion } from 'motion/react';
 import { Mail, MapPin, MessageSquare, Send, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
-import { Turnstile } from '@marsidev/react-turnstile';
-import { TURNSTILE_SITE_KEY } from '../../config/turnstile';
 import { contactAPI } from '../../services/api';
 
 export function Contact() {
   const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,12 +25,6 @@ export function Contact() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       toast.error(t('contact.invalidEmail'));
-      return;
-    }
-
-    // Captcha validation
-    if (!captchaToken) {
-      toast.error(t('contact.captchaError'));
       return;
     }
 
@@ -248,20 +239,6 @@ export function Contact() {
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1FBF9A] focus:border-transparent transition-all resize-none"
                       placeholder="Écrivez votre message ici..."
                       required
-                    />
-                  </div>
-
-                  {/* Captcha */}
-                  <div className="mt-4">
-                    <Turnstile
-                      siteKey={TURNSTILE_SITE_KEY}
-                      onVerify={(token: string) => setCaptchaToken(token)}
-                      onError={() => setCaptchaToken(null)}
-                      onExpire={() => setCaptchaToken(null)}
-                      options={{
-                        theme: 'light',
-                        size: 'normal',
-                      }}
                     />
                   </div>
 
