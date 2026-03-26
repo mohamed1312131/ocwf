@@ -113,15 +113,25 @@ export function Professionals() {
 
           {/* Professions */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-            {professions.map((prof) => (
-              <div
+            {professions.map((prof, idx) => (
+              <motion.div
                 key={prof.label}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 + idx * 0.15, ease: 'easeOut' }}
+                whileHover={{ scale: 1.06, y: -4, transition: { duration: 0.2 } }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 cursor-default"
               >
-                <div className="text-4xl mb-3">{prof.emoji}</div>
+                <motion.div
+                  className="text-4xl mb-3"
+                  animate={{ rotate: [0, -8, 8, -4, 4, 0] }}
+                  transition={{ duration: 1.2, delay: 0.6 + idx * 0.15, ease: 'easeInOut' }}
+                >
+                  {prof.emoji}
+                </motion.div>
                 <div className="font-bold text-lg mb-1">{prof.label}</div>
                 <div className="text-sm text-white/70">{prof.description}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

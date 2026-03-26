@@ -128,23 +128,23 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-col items-center md:items-start gap-2">
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-full flex flex-col md:flex-row justify-between items-center gap-2">
               <p className="text-white/70 text-sm">
                 © {currentYear} OmniCare. {t('footer.rights')}
               </p>
-              <p className="text-white/50 text-xs">
-                {t('footer.poweredBy')}
-              </p>
+              <div className="flex gap-6">
+                <Link to="#" className="text-white/70 hover:text-white transition-colors text-sm">
+                  {t('footer.privacy')}
+                </Link>
+                <Link to="#" className="text-white/70 hover:text-white transition-colors text-sm">
+                  {t('footer.terms')}
+                </Link>
+              </div>
             </div>
-            <div className="flex gap-6">
-              <Link to="#" className="text-white/70 hover:text-white transition-colors text-sm">
-                {t('footer.privacy')}
-              </Link>
-              <Link to="#" className="text-white/70 hover:text-white transition-colors text-sm">
-                {t('footer.terms')}
-              </Link>
-            </div>
+            <p className="text-white/80 text-base font-medium tracking-wide">
+              {t('footer.poweredBy')}
+            </p>
           </div>
         </div>
       </div>
