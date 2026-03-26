@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import logoImage from '../../assets/app_logo.png';
 
@@ -116,12 +116,6 @@ export function Footer() {
                 <Mail size={18} className="mt-0.5 flex-shrink-0" />
                 <a href="mailto:contact@omnicare.tn" className="text-white/80 hover:text-white transition-colors text-sm">
                   contact@omnicare.tn
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <Phone size={18} className="mt-0.5 flex-shrink-0" />
-                <a href="tel:+21655618060" className="text-white/80 hover:text-white transition-colors text-sm">
-                  +216 55 618 060
                 </a>
               </li>
               <li className="flex items-start gap-2">

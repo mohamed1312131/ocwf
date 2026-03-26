@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, MessageSquare, Send, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, MessageSquare, Send, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 import { Turnstile } from '@marsidev/react-turnstile';
@@ -64,12 +64,6 @@ export function Contact() {
       title: t('contact.email'),
       content: 'contact@omnicare.tn',
       href: 'mailto:contact@omnicare.tn',
-    },
-    {
-      icon: Phone,
-      title: t('contact.phone'),
-      content: '+216 12 345 678',
-      href: 'tel:+21612345678',
     },
     {
       icon: MapPin,

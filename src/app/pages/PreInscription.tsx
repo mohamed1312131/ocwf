@@ -4,14 +4,10 @@ import { Stethoscope, Syringe, Brain, Bone, CheckCircle, ArrowRight } from 'luci
 import { usePreInscription } from '../context/PreInscriptionContext';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
-import { Turnstile } from '@marsidev/react-turnstile';
-import { TURNSTILE_SITE_KEY } from '../../config/turnstile';
-
 export function PreInscription() {
   const { t } = useTranslation();
   const { addPreInscription } = usePreInscription();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -48,12 +44,6 @@ export function PreInscription() {
     // Phone validation (basic)
     if (formData.phone.length < 8) {
       toast.error(t('preInscription.invalidPhone'));
-      return;
-    }
-
-    // Captcha validation
-    if (!captchaToken) {
-      toast.error(t('preInscription.captchaError'));
       return;
     }
 
@@ -265,20 +255,6 @@ export function PreInscription() {
                   </label>
                 ))}
               </div>
-            </div>
-
-            {/* Captcha */}
-            <div className="mt-4">
-              <Turnstile
-                siteKey={TURNSTILE_SITE_KEY}
-                onVerify={(token: string) => setCaptchaToken(token)}
-                onError={() => setCaptchaToken(null)}
-                onExpire={() => setCaptchaToken(null)}
-                options={{
-                  theme: 'light',
-                  size: 'normal',
-                }}
-              />
             </div>
 
             {/* Submit Button */}
