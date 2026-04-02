@@ -217,8 +217,8 @@ export function Features() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                    whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                    className="group bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden h-full"
+                    whileHover={{ y: -8, transition: { duration: 0.1, type: "tween" } }}
+                    className="group bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-2xl transition-shadow duration-300 cursor-pointer relative overflow-hidden h-full"
                   >
                     {/* Animated Background Gradient on Hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#1FBF9A]/5 to-[#6BE3B2]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -331,8 +331,8 @@ export function Features() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: idx * 0.08 }}
-                        whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.2 } }}
-                        className="group/card p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                        whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.1, type: "tween" } }}
+                        className="group/card p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
                       >
                         <motion.div
                           className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1FBF9A] to-[#6BE3B2] flex items-center justify-center mb-4 shadow-lg mx-auto"
@@ -364,8 +364,8 @@ export function Features() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.3, delay: idx * 0.08 }}
-                          whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.2 } }}
-                          className="group/card flex-shrink-0 w-[280px] sm:w-[320px] p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                          whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.1, type: "tween" } }}
+                          className="group/card flex-shrink-0 w-[280px] sm:w-[320px] p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
                         >
                           <motion.div
                             className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-[#1FBF9A] to-[#6BE3B2] flex items-center justify-center mb-4 shadow-lg mx-auto"
@@ -436,8 +436,8 @@ export function Features() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: idx * 0.08 }}
-                        whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.2 } }}
-                        className="group/card p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                        whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.1, type: "tween" } }}
+                        className="group/card p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
                       >
                         <motion.div
                           className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#0F6F73] to-[#1FBF9A] flex items-center justify-center mb-4 shadow-lg mx-auto"
@@ -469,8 +469,8 @@ export function Features() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.3, delay: idx * 0.08 }}
-                          whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.2 } }}
-                          className="group/card flex-shrink-0 w-[280px] sm:w-[320px] p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                          whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.1, type: "tween" } }}
+                          className="group/card flex-shrink-0 w-[280px] sm:w-[320px] p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
                         >
                           <motion.div
                             className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-[#0F6F73] to-[#1FBF9A] flex items-center justify-center mb-4 shadow-lg mx-auto"

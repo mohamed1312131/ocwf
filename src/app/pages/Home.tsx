@@ -133,18 +133,32 @@ export function Home() {
                 <motion.div
                   key={prof.label}
                   initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ 
-                    duration: 0.4, 
-                    delay: 0.8 + idx * 0.1,
-                    type: "spring",
-                    stiffness: 200
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    transition: { 
+                      duration: 0.4,
+                      delay: 0.8 + idx * 0.1,
+                      type: "tween"
+                    }
                   }}
                   whileHover={{ 
                     scale: 1.1, 
                     y: -5,
-                    transition: { duration: 0.2 }
+                    transition: { 
+                      duration: 0.1, 
+                      type: "tween" 
+                    }
                   }}
+                  whileTap={{ 
+                    scale: 1.1, 
+                    y: -5,
+                    transition: { 
+                      duration: 0.1, 
+                      type: "tween" 
+                    }
+                  }}
+                  style={{ y: 0 }}
                   className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200 cursor-pointer"
                 >
                   <span className="text-xl">{prof.emoji}</span>
