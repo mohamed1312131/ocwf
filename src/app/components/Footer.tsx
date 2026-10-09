@@ -2,149 +2,134 @@ import { Link } from 'react-router';
 import { Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import logoImage from '../../assets/app_logo.png';
+import { StoreBadges } from './StoreBadges';
+import { CONTACT_EMAIL } from '../../config/appLinks';
+
+const socials = [
+  {
+    href: 'https://www.facebook.com/profile.php?id=61576014832405',
+    label: 'Facebook',
+    icon: Facebook,
+  },
+  {
+    href: 'https://www.instagram.com/omnilinks.tn/',
+    label: 'Instagram',
+    icon: Instagram,
+  },
+  {
+    href: 'https://www.linkedin.com/company/omnilinks-tn/posts/?feedView=all',
+    label: 'LinkedIn',
+    icon: Linkedin,
+  },
+];
+
+const navigation = [
+  { href: '/', labelKey: 'nav.home' },
+  { href: '/fonctionnalites', labelKey: 'nav.features' },
+  { href: '/professionnels', labelKey: 'nav.professionals' },
+  { href: '/a-propos', labelKey: 'nav.about' },
+  { href: '/contact', labelKey: 'nav.contact' },
+];
 
 export function Footer() {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0F6F73] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Logo & Description */}
+    <footer className="bg-[#0C5456] text-white">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-white rounded-lg p-1 flex items-center justify-center">
-                <img 
-                  src={logoImage} 
-                  alt="OmniCare Logo" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <span className="text-2xl font-bold">OmniCare</span>
+            <Link to="/" className="flex items-center gap-2.5">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white p-1">
+                <img src={logoImage} alt="" className="h-full w-full object-contain" />
+              </span>
+              <span className="text-2xl font-bold tracking-tight">OmniCare</span>
             </Link>
-            <p className="text-white/80 text-sm leading-relaxed mb-4">
-              {t('footer.description')}
-            </p>
-            
-            {/* Social Media Links */}
-            <div className="flex gap-4">
-              <a 
-                href="https://www.facebook.com/profile.php?id=61576014832405" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
-              </a>
-              <a 
-                href="https://www.instagram.com/omnilinks.tn/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
-              <a 
-                href="https://www.linkedin.com/company/omnilinks-tn/posts/?feedView=all" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/80">{t('footer.description')}</p>
+            <div className="mt-5 flex gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  <s.icon className="h-4.5 w-4.5" aria-hidden="true" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Navigation */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">{t('footer.navigation')}</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-white/80 hover:text-white transition-colors text-sm">
-                  {t('nav.home')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/fonctionnalites" className="text-white/80 hover:text-white transition-colors text-sm">
-                  {t('nav.features')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/professionnels" className="text-white/80 hover:text-white transition-colors text-sm">
-                  {t('nav.professionals')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/a-propos" className="text-white/80 hover:text-white transition-colors text-sm">
-                  {t('nav.about')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-white/80 hover:text-white transition-colors text-sm">
-                  {t('nav.contact')}
-                </Link>
-              </li>
+          <nav aria-label={t('footer.navigation')}>
+            <h3 className="text-sm font-bold uppercase tracking-wide text-white/60">{t('footer.navigation')}</h3>
+            <ul className="mt-4 space-y-2.5">
+              {navigation.map((link) => (
+                <li key={link.href}>
+                  <Link to={link.href} className="text-sm text-white/80 transition hover:text-white">
+                    {t(link.labelKey)}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Pour les Professionnels */}
+          {/* Professionals */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">{t('footer.professionalsSection')}</h3>
-            <ul className="space-y-2">
+            <h3 className="text-sm font-bold uppercase tracking-wide text-white/60">{t('footer.professionalsSection')}</h3>
+            <ul className="mt-4 space-y-2.5">
               <li>
-                <Link to="/professionnels" className="text-white/80 hover:text-white transition-colors text-sm">
+                <Link to="/professionnels" className="text-sm text-white/80 transition hover:text-white">
                   {t('footer.advantages')}
                 </Link>
               </li>
               <li>
-                <Link to="/pre-inscription" className="text-white/80 hover:text-white transition-colors text-sm">
+                <Link to="/pre-inscription" className="text-sm text-white/80 transition hover:text-white">
                   {t('nav.preRegister')}
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact + download */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">{t('footer.contactSection')}</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2">
-                <Mail size={18} className="mt-0.5 flex-shrink-0" />
-                <a href="mailto:contact@omnicare.tn" className="text-white/80 hover:text-white transition-colors text-sm">
-                  contact@omnicare.tn
+            <h3 className="text-sm font-bold uppercase tracking-wide text-white/60">{t('footer.contactSection')}</h3>
+            <ul className="mt-4 space-y-3 text-sm">
+              <li className="flex items-start gap-2.5">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#6BE3B2]" aria-hidden="true" />
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-white/80 transition hover:text-white">
+                  {CONTACT_EMAIL}
                 </a>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-white/80 text-sm">Tunis, Tunisie</span>
+              <li className="flex items-start gap-2.5">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#6BE3B2]" aria-hidden="true" />
+                <span className="text-white/80">Tunis, Tunisie</span>
               </li>
             </ul>
+            <div className="mt-5">
+              <p className="mb-3 text-sm font-semibold text-white/90">{t('common.downloadApp')}</p>
+              <StoreBadges size="sm" />
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/20">
-          <div className="flex flex-col items-center gap-3">
-            <div className="w-full flex flex-col md:flex-row justify-between items-center gap-2">
-              <p className="text-white/70 text-sm">
-                © {currentYear} OmniCare. {t('footer.rights')}
-              </p>
-              <div className="flex gap-6">
-                <Link to="#" className="text-white/70 hover:text-white transition-colors text-sm">
-                  {t('footer.privacy')}
-                </Link>
-                <Link to="#" className="text-white/70 hover:text-white transition-colors text-sm">
-                  {t('footer.terms')}
-                </Link>
-              </div>
-            </div>
-            <p className="text-white/80 text-base font-medium tracking-wide">
-              {t('footer.poweredBy')}
-            </p>
+        {/* Bottom bar */}
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-7 md:flex-row">
+          <p className="text-sm text-white/70">
+            © {currentYear} OmniCare. {t('footer.rights')}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <Link to="/contact" className="text-sm text-white/70 transition hover:text-white">
+              {t('footer.privacy')}
+            </Link>
+            <Link to="/contact" className="text-sm text-white/70 transition hover:text-white">
+              {t('footer.terms')}
+            </Link>
+            <span className="text-sm text-white/60">{t('footer.poweredBy')}</span>
           </div>
         </div>
       </div>

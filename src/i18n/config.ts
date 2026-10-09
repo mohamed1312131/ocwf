@@ -34,4 +34,14 @@ i18n
     }
   });
 
+// Keep <html lang> and text direction in sync with the active language.
+function syncDocumentLang(lng: string) {
+  if (typeof document === 'undefined') return;
+  document.documentElement.lang = lng;
+  document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
+}
+
+syncDocumentLang(i18n.language || 'fr');
+i18n.on('languageChanged', syncDocumentLang);
+
 export default i18n;

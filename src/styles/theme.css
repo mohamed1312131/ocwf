@@ -15,9 +15,44 @@
   --error: #EF4444;
   --warning: #F59E0B;
   --info: #3B82F6;
+
+  /* Text-safe brand tones (AA contrast on white) */
+  --primary-strong: #0B5A5D;
+  --primary-dark: #0F6F73;
+
+  /* Page rhythm tints */
+  --mist: #F3FBF8;
+  --ink: #06282C;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #0F6F73 0%, #1FBF9A 50%, #6BE3B2 100%);
+  --gradient-brand-soft: linear-gradient(135deg, rgba(31, 191, 154, 0.12), rgba(15, 111, 115, 0.08));
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 2px rgba(15, 111, 115, 0.06), 0 8px 24px rgba(15, 111, 115, 0.08);
+  --shadow-card: 0 4px 16px rgba(15, 111, 115, 0.1);
+  --shadow-elevated: 0 16px 40px rgba(15, 111, 115, 0.16);
+  --shadow-glow: 0 12px 30px rgba(31, 191, 154, 0.35);
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-base: 250ms;
+  --motion-slow: 450ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   
   /* Default theme colors */
-  --background: #F4F5F7;
+  --background: #FFFFFF;
   --foreground: #1A202C;
   --card: #FFFFFF;
   --card-foreground: #1A202C;
@@ -85,6 +120,14 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --color-primary-strong: var(--primary-strong);
+  --color-mist: var(--mist);
+  --color-ink: var(--ink);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-card: var(--shadow-card);
+  --shadow-elevated: var(--shadow-elevated);
+  --shadow-glow: var(--shadow-glow);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -108,6 +151,7 @@
   html {
     font-size: var(--font-size);
     font-family: var(--font-family);
+    scroll-behavior: smooth;
   }
 
   h1 {
@@ -147,5 +191,25 @@
 
   p {
     line-height: 1.6;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary-dark);
+    outline-offset: 2px;
+  }
+
+  /* Respect reduced-motion everywhere. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
   }
 }

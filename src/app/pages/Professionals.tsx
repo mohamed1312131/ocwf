@@ -1,254 +1,147 @@
 import { Link } from 'react-router';
-import { motion } from 'motion/react';
+import { ArrowRight, Brain, Bone, Stethoscope, Syringe } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import {
-  TrendingUp,
-  Users,
-  Clock,
-  Shield,
-  Smartphone,
-  CreditCard,
-  BarChart3,
-  Calendar,
-  FileText,
-  CheckCircle,
-  ArrowRight,
-} from 'lucide-react';
+import { PageHero } from '../components/PageHero';
+import { Section } from '../components/Section';
+import { SectionHeading } from '../components/SectionHeading';
+import { Accordion } from '../components/Accordion';
+import type { AccordionItem } from '../components/Accordion';
+import { Stagger, StaggerItem } from '../components/motion/Stagger';
+import { Reveal } from '../components/motion/Reveal';
+import { professionalFeatures } from '../../config/features';
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
+
+const professions: { value: string; icon: LucideIcon }[] = [
+  { value: 'doctor', icon: Stethoscope },
+  { value: 'nurse', icon: Syringe },
+  { value: 'psychologist', icon: Brain },
+  { value: 'physiotherapist', icon: Bone },
+];
 
 export function Professionals() {
   const { t } = useTranslation();
-  
-  const benefits = [
-    {
-      icon: TrendingUp,
-      title: t('professionals.benefits.patients.title'),
-      description: t('professionals.benefits.patients.description'),
-    },
-    {
-      icon: Clock,
-      title: t('professionals.benefits.flexibility.title'),
-      description: t('professionals.benefits.flexibility.description'),
-    },
-    {
-      icon: Shield,
-      title: t('home.features.secure.title'),
-      description: t('home.features.secure.description'),
-    },
-    {
-      icon: Smartphone,
-      title: t('features.videoConsultation.title'),
-      description: t('features.videoConsultation.description'),
-    },
-    {
-      icon: CreditCard,
-      title: t('features.payment.title'),
-      description: t('features.payment.description'),
-    },
-    {
-      icon: BarChart3,
-      title: t('professionals.benefits.tools.title'),
-      description: t('professionals.benefits.tools.description'),
-    },
-  ];
 
-  const steps = [
-    {
-      number: '01',
-      title: t('professionals.howItWorks.step1.title'),
-      description: t('professionals.howItWorks.step1.description'),
-      icon: FileText,
-    },
-    {
-      number: '02',
-      title: t('professionals.howItWorks.step2.title'),
-      description: t('professionals.howItWorks.step2.description'),
-      icon: CheckCircle,
-    },
-    {
-      number: '03',
-      title: t('professionals.howItWorks.step3.title'),
-      description: t('professionals.howItWorks.step3.description'),
-      icon: Calendar,
-    },
-    {
-      number: '04',
-      title: t('professionals.howItWorks.step4.title'),
-      description: t('professionals.howItWorks.step4.description'),
-      icon: Users,
-    },
-  ];
+  useDocumentMeta({ title: t('professionals.metaTitle'), description: t('professionals.metaDescription') });
 
-  const professions = [
-    { emoji: '🩺', label: t('preInscription.doctor'), description: t('professionals.professions.doctor') },
-    { emoji: '💉', label: t('preInscription.nurse'), description: t('professionals.professions.nurse') },
-    { emoji: '🧠', label: t('preInscription.psychologist'), description: t('professionals.professions.psychologist') },
-    { emoji: '🦴', label: t('preInscription.physiotherapist'), description: t('professionals.professions.physiotherapist') },
-  ];
+  const faqItems = t('home.faq.professionals', { returnObjects: true }) as AccordionItem[];
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0F6F73] text-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-              {t('professionals.hero.title')}
-            </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-              {t('professionals.hero.subtitle')}
-            </p>
-            <Link
-              to="/pre-inscription"
-              className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#1FBF9A]/30 hover:-translate-y-0.5"
-              style={{ minWidth: '44px', minHeight: '44px' }}
-            >
-              {t('nav.preRegister')}
-            </Link>
-          </motion.div>
+    <>
+      <PageHero
+        eyebrow={t('home.pro.eyebrow')}
+        title={t('professionals.hero.title')}
+        subtitle={t('home.pro.subtitle')}
+      >
+        <Link
+          to="/pre-inscription"
+          className="group inline-flex min-h-12 items-center gap-2 rounded-2xl bg-gradient-to-br from-[#0F6F73] to-[#1FBF9A] px-8 py-4 font-semibold text-white shadow-[0_20px_45px_-18px_rgba(15,111,115,0.65)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_26px_55px_-18px_rgba(15,111,115,0.75)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
+          {t('nav.preRegister')}
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100" aria-hidden="true" />
+        </Link>
+        <Link
+          to="/contact"
+          className="inline-flex min-h-12 items-center rounded-2xl border border-[#1FBF9A]/40 px-8 py-4 font-semibold text-primary-strong transition hover:border-[#1FBF9A] hover:bg-[#1FBF9A]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
+          {t('nav.contact')}
+        </Link>
+      </PageHero>
 
-          {/* Professions */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-            {professions.map((prof, idx) => (
-              <motion.div
-                key={prof.label}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 + idx * 0.15, ease: 'easeOut' }}
-                whileHover={{ scale: 1.06, y: -4, transition: { duration: 0.2 } }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 cursor-default"
-              >
-                <motion.div
-                  className="text-4xl mb-3"
-                  animate={{ rotate: [0, -8, 8, -4, 4, 0] }}
-                  transition={{ duration: 1.2, delay: 0.6 + idx * 0.15, ease: 'easeInOut' }}
-                >
-                  {prof.emoji}
-                </motion.div>
-                <div className="font-bold text-lg mb-1">{prof.label}</div>
-                <div className="text-sm text-white/70">{prof.description}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Integration Steps */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-4">
-              {t('professionals.howItWorks.title')}
-            </h2>
-            <p className="text-lg text-[#718096] max-w-2xl mx-auto">
-              {t('home.hero.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step, idx) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="relative"
-              >
-                <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 h-full hover:border-[#1FBF9A] transition-all duration-300 flex flex-col items-center text-center">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1FBF9A] to-[#6BE3B2] flex items-center justify-center text-white font-bold text-lg mb-4">
-                    {step.number}
-                  </div>
-                  <step.icon className="w-10 h-10 text-[#1FBF9A] mb-4" />
-                  <h3 className="text-lg font-bold text-[#1A202C] mb-2">{step.title}</h3>
-                  <p className="text-[#718096] text-sm leading-relaxed">{step.description}</p>
+      {/* Professions */}
+      <Section className="bg-white py-28 lg:py-32">
+        <SectionHeading eyebrow={t('professionals.professionsEyebrow')} title={t('professionals.professionsTitle')} subtitle={t('professionals.professionsSubtitle')} />
+        <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {professions.map((p) => (
+            <StaggerItem key={p.value} className="h-full">
+              <div className="flex h-full flex-col items-center gap-5 rounded-3xl bg-white p-9 text-center shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-28px_rgba(15,111,115,0.45)]">
+                <span className="flex h-16 w-16 items-center justify-center rounded-[1.4rem] bg-gradient-to-br from-[#1FBF9A]/15 to-[#6BE3B2]/15 text-primary-strong">
+                  <p.icon className="h-8 w-8" aria-hidden="true" />
+                </span>
+                <div>
+                  <div className="text-xl font-bold text-text-primary">{t(`preInscription.${p.value}`)}</div>
+                  <div className="mt-1.5 text-base text-text-secondary">{t(`professionals.professions.${p.value}`)}</div>
                 </div>
-                {idx < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="w-6 h-6 text-[#1FBF9A]" />
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+              </div>
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </Section>
 
-      {/* FAQ Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-4">
-              {t('professionals.faq.title')}
-            </h2>
-          </div>
+      {/* How it works */}
+      <Section className="bg-mist py-28 lg:py-32">
+        <SectionHeading eyebrow={t('home.how.eyebrow')} title={t('home.how.title')} subtitle={t('home.how.professionalsTitle')} />
+        <Stagger className="mx-auto mt-12 grid max-w-5xl gap-5 sm:grid-cols-2">
+          {[1, 2, 3, 4].map((n) => (
+            <StaggerItem key={n} className="h-full">
+              <div className="flex h-full items-start gap-5 rounded-3xl bg-white p-7 shadow-soft">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#1FBF9A]/12 text-xl font-extrabold text-primary-strong">
+                  {String(n).padStart(2, '0')}
+                </span>
+                <div>
+                  <div className="text-lg font-semibold text-text-primary">{t(`home.how.professionals.step${n}.title`)}</div>
+                  <div className="mt-1 text-base text-text-secondary">{t(`home.how.professionals.step${n}.description`)}</div>
+                </div>
+              </div>
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </Section>
 
-          <div className="space-y-4">
-            {[
-              {
-                q: t('professionals.faq.q1'),
-                a: t('professionals.faq.a1'),
-              },
-              {
-                q: t('professionals.faq.q2'),
-                a: t('professionals.faq.a2'),
-              },
-              {
-                q: t('professionals.faq.q3'),
-                a: t('professionals.faq.a3'),
-              },
-              {
-                q: t('professionals.faq.q4'),
-                a: t('professionals.faq.a4'),
-              },
-            ].map((faq, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: idx * 0.05 }}
-                className="bg-[#F4F5F7] rounded-xl p-6"
-              >
-                <h4 className="font-bold text-[#1A202C] mb-2">{faq.q}</h4>
-                <p className="text-[#718096] leading-relaxed">{faq.a}</p>
-              </motion.div>
-            ))}
-          </div>
+      {/* Benefits */}
+      <Section className="bg-white py-28 lg:py-32">
+        <SectionHeading eyebrow={t('home.pro.eyebrow')} title={t('professionals.benefits.title')} subtitle={t('home.showcase.subtitle')} />
+        <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {professionalFeatures.map((f) => (
+            <StaggerItem key={f.id} className="h-full">
+              <div className="flex h-full flex-col rounded-3xl bg-mist p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-28px_rgba(15,111,115,0.45)]">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-primary-strong shadow-card">
+                  <f.icon className="h-7 w-7" aria-hidden="true" />
+                </span>
+                <div className="mt-5 text-xl font-bold text-text-primary">{t(f.titleKey)}</div>
+                <div className="mt-2 text-base text-text-secondary">{t(f.descKey)}</div>
+              </div>
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </Section>
+
+      {/* FAQ */}
+      <Section className="bg-mist py-28 lg:py-32">
+        <SectionHeading eyebrow={t('home.faq.eyebrow')} title={t('home.faq.title')} subtitle={t('home.faq.subtitle')} />
+        <div className="mx-auto mt-12 max-w-3xl">
+          <Reveal>
+            <Accordion items={faqItems} />
+          </Reveal>
         </div>
-      </section>
+      </Section>
 
       {/* Final CTA */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F6F73] via-[#1FBF9A] to-[#6BE3B2]">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            {t('professionals.cta.title')}
-          </h2>
-          <p className="text-xl mb-8 text-white/90 leading-relaxed">
-            {t('home.cta.subtitle')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/pre-inscription"
-              className="inline-block px-8 py-4 rounded-xl bg-white text-[#0F6F73] font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
-              style={{ minWidth: '44px', minHeight: '44px' }}
-            >
-              {t('nav.preRegister')}
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-block px-8 py-4 rounded-xl border-2 border-white text-white font-semibold transition-all duration-300 hover:bg-white hover:text-[#0F6F73]"
-              style={{ minWidth: '44px', minHeight: '44px' }}
-            >
-              {t('nav.contact')}
-            </Link>
+      <Section className="bg-white pb-28 pt-28 lg:pb-32 lg:pt-32">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#06282C] via-[#0F6F73] to-[#1FBF9A] px-6 py-16 text-center text-white sm:px-12 lg:py-24">
+            <div aria-hidden="true" className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#6BE3B2]/25 blur-3xl" />
+            <div aria-hidden="true" className="pointer-events-none absolute -bottom-20 -right-10 h-60 w-60 rounded-full bg-white/15 blur-3xl" />
+            <h2 className="relative text-balance text-4xl font-extrabold sm:text-5xl">{t('professionals.cta.title')}</h2>
+            <p className="relative mx-auto mt-5 max-w-2xl text-lg text-white/90 sm:text-xl">{t('home.pro.subtitle')}</p>
+            <div className="relative mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                to="/pre-inscription"
+                className="group inline-flex min-h-12 items-center gap-2 rounded-2xl bg-white px-8 py-4 font-semibold text-primary-strong transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+              >
+                {t('nav.preRegister')}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100" aria-hidden="true" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex min-h-12 items-center rounded-2xl border-2 border-white/80 px-8 py-4 font-semibold text-white transition hover:bg-white hover:text-primary-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+              >
+                {t('nav.contact')}
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </Reveal>
+      </Section>
+    </>
   );
 }
