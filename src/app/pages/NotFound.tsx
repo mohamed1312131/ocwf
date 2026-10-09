@@ -1,34 +1,35 @@
+import { ArrowLeft, Home } from 'lucide-react';
 import { Link } from 'react-router';
-import { Home, ArrowLeft } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 export function NotFound() {
-  return (
-    <div className="min-h-screen pt-20 flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-[#F4F5F7]">
-      <div className="max-w-2xl w-full text-center">
-        <div className="mb-8">
-          <div className="text-9xl font-bold text-[#1FBF9A] mb-4">404</div>
-          <h1 className="text-4xl font-bold text-[#1A202C] mb-4">Page non trouvée</h1>
-          <p className="text-xl text-[#718096] mb-8">
-            Désolé, la page que vous recherchez n'existe pas ou a été déplacée.
-          </p>
-        </div>
+  const { t } = useTranslation();
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+  useDocumentMeta({ title: t('notfound.title'), description: t('notfound.metaDescription') });
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-mist px-4 pb-24 pt-36">
+      <div className="w-full max-w-2xl text-center">
+        <p className="text-9xl font-extrabold text-[#1FBF9A]/20">404</p>
+        <h1 className="-mt-6 text-4xl font-bold text-text-primary sm:text-5xl">{t('notfound.title')}</h1>
+        <p className="mx-auto mt-4 max-w-md text-lg text-text-secondary">{t('notfound.subtitle')}</p>
+
+        <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#1FBF9A]/30 hover:-translate-y-0.5"
-            style={{ minWidth: '44px', minHeight: '44px' }}
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            <Home className="w-5 h-5" />
-            <span>Retour à l'accueil</span>
+            <Home className="h-5 w-5" aria-hidden="true" />
+            {t('notfound.backHome')}
           </Link>
           <button
+            type="button"
             onClick={() => window.history.back()}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-[#1FBF9A] text-[#1FBF9A] font-semibold transition-all duration-300 hover:bg-[#1FBF9A] hover:text-white"
-            style={{ minWidth: '44px', minHeight: '44px' }}
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border bg-white px-7 py-3.5 font-semibold text-text-primary transition hover:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Page précédente</span>
+            <ArrowLeft className="h-5 w-5 rtl:-scale-x-100" aria-hidden="true" />
+            {t('notfound.goBack')}
           </button>
         </div>
       </div>
