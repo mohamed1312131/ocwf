@@ -1,10 +1,11 @@
 import { lazy } from 'react';
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, Navigate } from 'react-router';
 import { Layout } from './components/Layout';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Login } from './pages/Login';
 import { Admin } from './pages/Admin';
 import { Dashboard } from './pages/Dashboard';
+import { SharedFiles } from './pages/SharedFiles';
 
 // Route-level code splitting: each marketing page loads on demand.
 const Home = lazy(() => import('./pages/Home').then((m) => ({ default: m.Home })));
@@ -20,6 +21,33 @@ const Contact = lazy(() => import('./pages/Contact').then((m) => ({ default: m.C
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })));
 
 export const router = createBrowserRouter([
+  { path: '/login', element: <Navigate to="/admin/login" replace /> },
+  { path: '/admin/login', Component: Login },
+  { path: '/admin', element: <Navigate to="/admin/dashboard" replace /> },
+  {
+    path: '/admin/pre-inscriptions',
+    element: (
+      <ProtectedRoute>
+        <Admin />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admin/dashboard',
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admin/shared-files',
+    element: (
+      <ProtectedRoute>
+        <SharedFiles />
+      </ProtectedRoute>
+    ),
+  },
   {
     path: '/',
     Component: Layout,
@@ -30,23 +58,6 @@ export const router = createBrowserRouter([
       { path: 'pre-inscription', Component: PreInscription },
       { path: 'a-propos', Component: About },
       { path: 'contact', Component: Contact },
-      { path: 'login', Component: Login },
-      {
-        path: 'admin',
-        element: (
-          <ProtectedRoute>
-            <Admin />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: 'admin/dashboard',
-        element: (
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        ),
-      },
       { path: '*', Component: NotFound },
     ],
   },

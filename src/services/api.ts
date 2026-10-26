@@ -33,7 +33,7 @@ export interface RegisterRequest {
 
 export interface AuthResponse {
   token: string;
-  id: number;
+  userId: number;
   email: string;
   firstName: string;
   lastName: string;
@@ -87,6 +87,22 @@ export interface StatisticsResponse {
   pending: number;
   approved: number;
   rejected: number;
+}
+
+export interface SharedDocumentResponse {
+  id: number;
+  title: string;
+  originalFilename: string;
+  contentType?: string;
+  sizeBytes: number;
+  shareUrl: string;
+  revoked: boolean;
+  expired: boolean;
+  expiresAt?: string;
+  createdAt: string;
+  updatedAt?: string;
+  accessCount: number;
+  lastAccessedAt?: string;
 }
 
 export const authAPI = {
@@ -162,6 +178,48 @@ export const contactAPI = {
   
   delete: async (id: number): Promise<void> => {
     await api.delete(`/contact/${id}`);
+  },
+};
+
+export const sharedDocumentAPI = {
+  getAll: async (): Promise<SharedDocumentResponse[]> => {
+    const response = await api.get('/admin/shared-documents');
+    return response.data;
+  },
+
+  create: async (data: { file: File; title: string; expiresAt?: string }): Promise<SharedDocumentResponse> => {
+    const formData = new FormData();
+    formData.append('file', data.file);
+    formData.append('title', data.title);
+    if (data.expiresAt) formData.append('expiresAt', data.expiresAt);
+
+    const response = await api.post('/admin/shared-documents', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return response.data;
+  },
+
+  update: async (
+    id: number,
+    data: { title: string; expiresAt?: string; clearExpiry: boolean }
+  ): Promise<SharedDocumentResponse> => {
+    const response = await api.patch(`/admin/shared-documents/${id}`, data);
+    return response.data;
+  },
+
+  revoke: async (id: number): Promise<SharedDocumentResponse> => {
+    const response = await api.post(`/admin/shared-documents/${id}/revoke`);
+    return response.data;
+  },
+
+  restore: async (id: number): Promise<SharedDocumentResponse> => {
+    const response = await api.post(`/admin/shared-documents/${id}/restore`);
+    return response.data;
+  },
+
+  downloadQr: async (id: number): Promise<Blob> => {
+    const response = await api.get(`/admin/shared-documents/${id}/qr`, { responseType: 'blob' });
+    return response.data;
   },
 };
 

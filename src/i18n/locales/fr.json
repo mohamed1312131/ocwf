@@ -524,7 +524,7 @@
   "login": {
     "title": "Connexion Admin",
     "subtitle": "Accédez au panneau d'administration OmniCare",
-    "username": "Nom d'utilisateur",
+    "username": "Adresse e-mail",
     "password": "Mot de passe",
     "signIn": "Se connecter",
     "error": "Identifiant ou mot de passe incorrect"

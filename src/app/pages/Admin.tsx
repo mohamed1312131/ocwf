@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { motion } from 'motion/react';
-import { Search, Download, Filter, Stethoscope, Syringe, Brain, Bone, ArrowUpDown, BarChart3, LogOut } from 'lucide-react';
+import { Search, Download, Filter, Stethoscope, Syringe, Brain, Bone, ArrowUpDown, BarChart3, FileText, LogOut } from 'lucide-react';
 import { usePreInscription } from '../context/PreInscriptionContext';
 import { useAuth } from '../context/AuthContext';
 import { format } from 'date-fns';
@@ -10,6 +10,12 @@ import { fr } from 'date-fns/locale';
 export function Admin() {
   const { preInscriptions, fetchPreInscriptions } = usePreInscription();
   const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/admin/login', { replace: true });
+  };
 
   useEffect(() => {
     fetchPreInscriptions();
@@ -101,7 +107,7 @@ export function Admin() {
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-[#F4F5F7]">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-[#F4F5F7]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -113,6 +119,14 @@ export function Admin() {
           </div>
           <div className="flex items-center gap-3">
             <Link
+              to="/admin/shared-files"
+              className="px-6 py-3 bg-white border border-gray-300 text-[#1A202C] font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center gap-2"
+              style={{ minHeight: '44px' }}
+            >
+              <FileText className="w-5 h-5" />
+              <span>Documents QR</span>
+            </Link>
+            <Link
               to="/admin/dashboard"
               className="px-6 py-3 bg-white border border-gray-300 text-[#1A202C] font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center gap-2"
               style={{ minHeight: '44px' }}
@@ -121,7 +135,7 @@ export function Admin() {
               <span>Dashboard</span>
             </Link>
             <button
-              onClick={logout}
+              onClick={handleLogout}
               className="px-6 py-3 bg-red-50 border border-red-200 text-red-700 font-semibold rounded-xl hover:bg-red-100 transition-all duration-300 flex items-center gap-2"
               style={{ minHeight: '44px' }}
             >

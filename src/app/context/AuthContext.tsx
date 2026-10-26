@@ -1,47 +1,63 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 import { authAPI } from '../../services/api';
+
+interface AuthUser {
+  userId: number;
+  email: string;
+  firstName: string;
+  lastName: string;
+  role: string;
+}
 
 interface AuthContextType {
   isAuthenticated: boolean;
   login: (username: string, password: string) => Promise<boolean>;
   logout: () => void;
-  user: { id: number; email: string; firstName: string; lastName: string; role: string } | null;
+  user: AuthUser | null;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export function AuthProvider({ children }: { children: ReactNode }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState<{ id: number; email: string; firstName: string; lastName: string; role: string } | null>(null);
+function loadStoredAdmin(): AuthUser | null {
+  const token = localStorage.getItem('omnicare_token');
+  const storedUser = localStorage.getItem('omnicare_user');
 
-  useEffect(() => {
-    const token = localStorage.getItem('omnicare_token');
-    const userData = localStorage.getItem('omnicare_user');
-    if (token && userData) {
-      setIsAuthenticated(true);
-      setUser(JSON.parse(userData));
-    }
-  }, []);
+  if (!token || !storedUser) return null;
+
+  try {
+    const parsedUser = JSON.parse(storedUser) as AuthUser;
+    return parsedUser.role === 'ADMIN' ? parsedUser : null;
+  } catch {
+    localStorage.removeItem('omnicare_token');
+    localStorage.removeItem('omnicare_user');
+    return null;
+  }
+}
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<AuthUser | null>(loadStoredAdmin);
+  const isAuthenticated = user !== null;
 
   const login = async (username: string, password: string): Promise<boolean> => {
     try {
       const response = await authAPI.login({ email: username, password });
+      if (response.role !== 'ADMIN') {
+        localStorage.removeItem('omnicare_token');
+        localStorage.removeItem('omnicare_user');
+        return false;
+      }
+
+      const authenticatedUser: AuthUser = {
+        userId: response.userId,
+        email: response.email,
+        firstName: response.firstName,
+        lastName: response.lastName,
+        role: response.role,
+      };
+
       localStorage.setItem('omnicare_token', response.token);
-      localStorage.setItem('omnicare_user', JSON.stringify({
-        id: response.id,
-        email: response.email,
-        firstName: response.firstName,
-        lastName: response.lastName,
-        role: response.role,
-      }));
-      setIsAuthenticated(true);
-      setUser({
-        id: response.id,
-        email: response.email,
-        firstName: response.firstName,
-        lastName: response.lastName,
-        role: response.role,
-      });
+      localStorage.setItem('omnicare_user', JSON.stringify(authenticatedUser));
+      setUser(authenticatedUser);
       return true;
     } catch (error) {
       console.error('Login failed:', error);
@@ -50,7 +66,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const logout = () => {
-    setIsAuthenticated(false);
     setUser(null);
     localStorage.removeItem('omnicare_token');
     localStorage.removeItem('omnicare_user');
