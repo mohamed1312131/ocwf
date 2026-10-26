@@ -18,6 +18,7 @@ import {
   MapPin,
   Pill,
   Receipt,
+  ShieldCheck,
   Stethoscope,
   Wallet,
 } from 'lucide-react';
@@ -28,6 +29,7 @@ export type ScreenId =
   | 'prescription'
   | 'notifications'
   | 'payment'
+  | 'insurance'
   | 'homecare'
   | 'followup'
   | 'dashboard';
@@ -181,6 +183,8 @@ function ScreenBody({ screen, heading }: { screen: ScreenId; heading: string }) 
       return <NotificationsScreen heading={heading} />;
     case 'payment':
       return <PaymentScreen heading={heading} />;
+    case 'insurance':
+      return <InsuranceScreen heading={heading} />;
     case 'homecare':
       return <HomeCareScreen heading={heading} />;
     case 'followup':
@@ -384,6 +388,26 @@ function PayRow({
       </span>
       <span className="text-[10px] font-semibold text-neutral-700">{label}</span>
       <span className="ml-auto text-[10px] font-bold text-neutral-800">{amount}</span>
+    </div>
+  );
+}
+
+function InsuranceScreen({ heading }: { heading: string }) {
+  return (
+    <div>
+      <PhoneHeader icon={ShieldCheck} title={heading} />
+      <div className="mb-2 rounded-2xl bg-gradient-to-br from-[#0F6F73] to-[#1FBF9A] p-3 text-white">
+        <div className="flex items-center gap-2">
+          <ShieldCheck className="h-4 w-4" />
+          <span className="text-[8px] uppercase tracking-wide text-white/70">Assurance</span>
+        </div>
+        <div className="mt-1 text-sm font-bold">Mon assurance</div>
+        <div className="mt-1 text-[8px] text-white/80">Gérée dans l'application</div>
+      </div>
+      <div className="space-y-2">
+        <RecordRow icon={FileText} label="Attestation d'assurance" sub="Disponible" />
+        <RecordRow icon={ShieldCheck} label="Couverture" sub="Active" />
+      </div>
     </div>
   );
 }

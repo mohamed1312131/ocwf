@@ -14,9 +14,6 @@ export const GOOGLE_PLAY_URL =
 /** Numeric iOS app id used by the Apple smart app banner. Empty until provided. */
 export const IOS_APP_ID = ''; // TODO: e.g. "1234567890"
 
-/** Default QR target — usually the store link. Confirmed before launch. */
-export const QR_TARGET_URL = APP_STORE_URL; // TODO: confirm QR target
-
 /** Built by OmniLinks. */
 export const COMPANY_NAME = 'OmniLinks';
 export const CONTACT_EMAIL = 'contact@omnicare.tn';

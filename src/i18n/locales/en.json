@@ -12,6 +12,21 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
+  "deck": {
+    "tabsAria": "Home page slides",
+    "tabs": {
+      "how": "How it works",
+      "professionals": "Professionals area",
+      "faq": "FAQ",
+      "download": "Download"
+    },
+    "prev": "Previous slide",
+    "next": "Next slide",
+    "gotoSlide": "Go to slide {{index}}",
+    "slideStatus": "Slide {{current}} of {{total}}",
+    "pauseAutoplay": "Pause autoplay",
+    "playAutoplay": "Play autoplay"
+  },
   "footer": {
     "description": "The health app made in Tunisia for your consultations, appointments and follow-up, wherever you are.",
     "navigation": "Navigation",
@@ -25,10 +40,8 @@
   },
   "home": {
     "hero": {
-      "title": "Health made in Tunisia, in your pocket",
-      "subtitle": "Consult verified health professionals, book appointments and manage your health — straight from your phone.",
-      "getStarted": "Get Started",
-      "learnMore": "Learn More",
+      "title": "Your care. All in one place.",
+      "subtitle": "Find healthcare professionals and manage your appointments, health records, and insurance, all in one app. OmniCare brings it all together.",
       "eyebrow": "Your care, on demand",
       "proCta": "I'm a health professional: request access",
       "cards": {
@@ -46,44 +59,9 @@
         }
       }
     },
-    "stats": {
-      "professionals": "Professionals",
-      "specialties": "Specialties",
-      "satisfaction": "Satisfaction",
-      "availability": "Availability"
-    },
-    "features": {
-      "title": "Why choose OmniCare?",
-      "subtitle": "Everything you need to take care of your health.",
-      "consultation": {
-        "title": "Medical consultations",
-        "description": "Book an appointment with verified health professionals"
-      },
-      "appointment": {
-        "title": "Easy appointment booking",
-        "description": "Book your consultations in a few clicks, whenever you want."
-      },
-      "professionals": {
-        "title": "Qualified professionals",
-        "description": "Access a network of certified and experienced healthcare professionals"
-      },
-      "secure": {
-        "title": "Secure and confidential",
-        "description": "Your health data is protected and confidential"
-      }
-    },
-    "cta": {
-      "title": "Ready to get started?",
-      "subtitle": "Join OmniCare and enjoy all these features.",
-      "button": "Create an account"
-    },
-    "mobileApp": {
-      "title": "Mobile Application",
-      "description": "Manage your consultations and health directly from your smartphone."
-    },
     "meta": {
-      "title": "OmniCare — the health app made in Tunisia",
-      "description": "The OmniCare app: your on-demand care across Tunisia. Consult verified health professionals, book appointments and follow your health."
+      "title": "OmniCare — Your care. All in one place.",
+      "description": "Find healthcare professionals and manage your appointments, health records, and insurance, all in one app. OmniCare brings it all together."
     },
     "trust": {
       "confidentiality": "Data confidentiality",
@@ -96,7 +74,6 @@
       "subtitle": "Every feature is built for simple, fast, trusted care.",
       "patientsTab": "For patients",
       "professionalsTab": "For professionals",
-      "patientsIntro": "Keep the essentials of your health in the OmniCare app.",
       "professionalsIntro": "Manage your activity and grow your practice with tools built for you.",
       "screenLabels": {
         "dashboard": "Professional space"
@@ -121,6 +98,10 @@
         "payment": {
           "title": "Secure payment",
           "description": "Pay for your consultations safely."
+        },
+        "insurance": {
+          "title": "Insurance",
+          "description": "Manage your insurance in the app."
         },
         "homeCare": {
           "title": "Home care",
@@ -151,35 +132,20 @@
         "pillOnboard": "4-step onboarding",
         "pillVerified": "Verified profiles",
         "pillSchedule": "Free schedule"
-      }
-    },
-    "bento": {
-      "eyebrow": "Every day",
-      "title": "Designed for your health, simply",
-      "subtitle": "A clear experience, built for daily use.",
-      "simple": {
-        "title": "Simple and fast",
-        "description": "An interface focused on what matters."
       },
-      "secure": {
-        "title": "Secure & confidential",
-        "description": "Your health data is protected."
-      },
-      "available": {
-        "title": "At your service",
-        "description": "Care on demand, whenever you need it."
-      },
-      "qualified": {
-        "title": "Qualified professionals",
-        "description": "Every profile is verified."
-      },
-      "tunisia": {
-        "title": "Across Tunisia",
-        "description": "Your care, wherever you are."
-      },
-      "follow": {
-        "title": "Daily follow-up",
-        "description": "Reminders and personalized care."
+      "highlights": {
+        "secure": {
+          "title": "Secure & confidential",
+          "description": "Your health data is protected."
+        },
+        "available": {
+          "title": "At your service",
+          "description": "Care on demand, whenever you need it."
+        },
+        "qualified": {
+          "title": "Qualified professionals",
+          "description": "Every profile is verified."
+        }
       }
     },
     "how": {
@@ -226,8 +192,7 @@
       "title": "Join the app and grow your practice",
       "subtitle": "Doctors, nurses, psychologists, physiotherapists: a solution built for your practice.",
       "cta": "I'm a professional: request access",
-      "onboardingTitle": "Your access journey",
-      "onboardingSubtitle": "Four simple steps to join OmniCare."
+      "onboardingTitle": "Your access journey"
     },
     "faq": {
       "eyebrow": "Need help?",
@@ -282,7 +247,8 @@
     },
     "final": {
       "title": "Ready to take care of your health?",
-      "subtitle": "Download the OmniCare app and get access to on-demand care."
+      "subtitle": "Download the OmniCare app and get access to on-demand care.",
+      "eyebrow": "Download OmniCare"
     }
   },
   "features": {
@@ -427,6 +393,10 @@
       "trust": {
         "title": "Trust",
         "description": "Guaranteed security and confidentiality"
+      },
+      "reach": {
+        "title": "Everywhere in Tunisia",
+        "description": "Quality care, wherever you are."
       }
     },
     "heroBadge": "Who we are",
@@ -437,12 +407,10 @@
     "story1Alt": "A phone and a stethoscope: simpler access to care",
     "story2Title": "Our solution",
     "story2Body": "Our mission is to bring patients and health professionals closer through a mobile app: consultations, booking, medical records, prescriptions and follow-up — designed for everyday life, for patients and for professionals.",
-    "story2Alt": "Managing appointments from a smartphone",
     "story3Title": "Our promise",
     "story3Body": "Accessible, modern and effective healthcare for everyone in Tunisia. OmniCare is technology in the service of people: quality care, wherever you are, whenever you need it.",
     "story3Alt": "Health professional in consultation",
-    "valuesEyebrow": "Our commitments",
-    "tunisiaAlt": "Tunisia, where OmniCare is built"
+    "valuesEyebrow": "Our commitments"
   },
   "contact": {
     "title": "Contact Us",
@@ -582,5 +550,17 @@
     "subtitle": "The page you are looking for does not exist or has been moved.",
     "backHome": "Back to home",
     "goBack": "Previous page"
+  },
+  "photos": {
+    "heroPatient": "Smiling doctor holding a smartphone",
+    "lifestyleHome": "Person using the OmniCare app in daily life",
+    "proDoctor": "Doctor in consultation in their practice",
+    "proNurse": "Nurse caring for a patient",
+    "ctaFamily": "Family using the OmniCare app together",
+    "aboutMission": "Health appointments managed from a smartphone",
+    "aboutTunisia": "Tunisia, where OmniCare is made",
+    "contactHeader": "Person reaching out to the OmniCare team",
+    "proPsychologist": "Listening session with a psychologist",
+    "proPhysio": "Rehabilitation session with a physiotherapist"
   }
 }

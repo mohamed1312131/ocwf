@@ -3,13 +3,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { BackToTop } from '../components/BackToTop';
 import { StickyMobileCta } from '../components/StickyMobileCta';
 import { Hero } from '../components/sections/Hero';
-import { TrustStrip } from '../components/sections/TrustStrip';
-import { FeatureShowcase } from '../components/sections/FeatureShowcase';
-import { BentoGrid } from '../components/sections/BentoGrid';
-import { HowItWorks } from '../components/sections/HowItWorks';
-import { ProfessionalAccess } from '../components/sections/ProfessionalAccess';
-import { FaqSection } from '../components/sections/FaqSection';
-import { DownloadCtaBand } from '../components/sections/DownloadCtaBand';
+import { DeckOrStack } from '../components/deck/DeckOrStack';
 
 export function Home() {
   const { t } = useTranslation();
@@ -22,13 +16,7 @@ export function Home() {
   return (
     <div>
       <Hero />
-      <TrustStrip />
-      <FeatureShowcase />
-      <BentoGrid />
-      <HowItWorks />
-      <ProfessionalAccess />
-      <FaqSection />
-      <DownloadCtaBand />
+      <DeckOrStack />
       <BackToTop />
       <StickyMobileCta />
     </div>

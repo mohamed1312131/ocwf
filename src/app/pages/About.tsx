@@ -7,16 +7,20 @@ import { SectionHeading } from '../components/SectionHeading';
 import { DownloadCtaBand } from '../components/sections/DownloadCtaBand';
 import { Stagger, StaggerItem } from '../components/motion/Stagger';
 import { Reveal } from '../components/motion/Reveal';
+import { Photo } from '../components/Photo';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
-import storyImage1 from '../../assets/ad71fe2685cc6f3070124bbb1ba3efeb70ac4bc6.webp';
-import storyImage2 from '../../assets/0cd048fb94ea28e94ecac46764d15421cd977e95.webp';
-import storyImage3 from '../../assets/81eae92ebae58edbe4ce3e4fcee58abce8c8c7f4.webp';
-import tunisiaImage from '../../assets/09960f750fd98ca10af332aa627f0667d9bda569.webp';
 
 interface ValueItem {
   icon: LucideIcon;
   title: string;
   description: string;
+}
+
+interface StoryItem {
+  id: string;
+  altKey: string;
+  title: string;
+  body: string;
 }
 
 export function About() {
@@ -27,16 +31,16 @@ export function About() {
   const values: ValueItem[] = [
     { icon: Target, title: t('about.values.accessibility.title'), description: t('about.values.accessibility.description') },
     { icon: ShieldCheck, title: t('about.values.trust.title'), description: t('about.values.trust.description') },
-    { icon: Users, title: t('home.trust.verified'), description: t('home.bento.qualified.description') },
+    { icon: Users, title: t('home.trust.verified'), description: t('home.showcase.highlights.qualified.description') },
     { icon: Lightbulb, title: t('about.values.innovation.title'), description: t('about.values.innovation.description') },
     { icon: Heart, title: t('about.values.quality.title'), description: t('about.values.quality.description') },
-    { icon: Flag, title: t('home.bento.tunisia.title'), description: t('home.bento.tunisia.description') },
+    { icon: Flag, title: t('about.values.reach.title'), description: t('about.values.reach.description') },
   ];
 
-  const story = [
-    { image: storyImage1, alt: t('about.story1Alt'), title: t('about.story1Title'), body: t('about.story1Body') },
-    { image: storyImage2, alt: t('about.story2Alt'), title: t('about.story2Title'), body: t('about.story2Body') },
-    { image: storyImage3, alt: t('about.story3Alt'), title: t('about.story3Title'), body: t('about.story3Body') },
+  const story: StoryItem[] = [
+    { id: 'about-story-1', altKey: 'about.story1Alt', title: t('about.story1Title'), body: t('about.story1Body') },
+    { id: 'about-mission', altKey: 'photos.aboutMission', title: t('about.story2Title'), body: t('about.story2Body') },
+    { id: 'about-story-3', altKey: 'about.story3Alt', title: t('about.story3Title'), body: t('about.story3Body') },
   ];
 
   return (
@@ -53,9 +57,7 @@ export function About() {
               className={`grid items-center gap-8 lg:grid-cols-2 ${idx % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
             >
               <Reveal>
-                <div className="relative overflow-hidden rounded-3xl shadow-elevated">
-                  <img src={item.image} alt={item.alt} className="aspect-[4/3] w-full object-cover" loading="lazy" />
-                </div>
+                <Photo id={item.id} altKey={item.altKey} className="aspect-[4/3] rounded-3xl shadow-elevated" />
               </Reveal>
               <Reveal delay={0.08}>
                 <div className="border-l-4 border-[#1FBF9A] pl-6">
@@ -116,9 +118,7 @@ export function About() {
             </Reveal>
           </div>
           <Reveal delay={0.1}>
-            <div className="relative overflow-hidden rounded-3xl shadow-elevated">
-              <img src={tunisiaImage} alt={t('about.tunisiaAlt')} className="aspect-[4/3] w-full object-cover" loading="lazy" />
-            </div>
+            <Photo id="about-tunisia" altKey="photos.aboutTunisia" className="aspect-[4/3] rounded-3xl shadow-elevated" />
           </Reveal>
         </div>
       </Section>

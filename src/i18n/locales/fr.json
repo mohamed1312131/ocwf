@@ -12,6 +12,21 @@
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu"
   },
+  "deck": {
+    "tabsAria": "Diapositives de la page d'accueil",
+    "tabs": {
+      "how": "Comment ça marche",
+      "professionals": "Espace professionnels",
+      "faq": "FAQ",
+      "download": "Télécharger"
+    },
+    "prev": "Diapositive précédente",
+    "next": "Diapositive suivante",
+    "gotoSlide": "Aller à la diapositive {{index}}",
+    "slideStatus": "Diapositive {{current}} sur {{total}}",
+    "pauseAutoplay": "Mettre l'autoplay en pause",
+    "playAutoplay": "Activer l'autoplay"
+  },
   "footer": {
     "description": "L’application santé made in Tunisia pour vos consultations, rendez-vous et suivi, où que vous soyez.",
     "navigation": "Navigation",
@@ -25,10 +40,8 @@
   },
   "home": {
     "hero": {
-      "title": "La santé made in Tunisia, dans votre poche",
-      "subtitle": "Consultez des professionnels de santé vérifiés, prenez rendez-vous et suivez votre santé — directement depuis votre téléphone.",
-      "getStarted": "Commencer",
-      "learnMore": "En savoir plus",
+      "title": "Vos soins. Tout au même endroit.",
+      "subtitle": "Trouvez des professionnels de santé et gérez vos rendez-vous, votre dossier médical et votre assurance, le tout dans une seule application. OmniCare réunit tout.",
       "eyebrow": "Vos soins à la demande",
       "proCta": "Je suis un professionnel de santé : demander mon accès",
       "cards": {
@@ -46,44 +59,9 @@
         }
       }
     },
-    "stats": {
-      "professionals": "Professionnels",
-      "specialties": "Spécialités",
-      "satisfaction": "Satisfaction",
-      "availability": "Disponibilité"
-    },
-    "features": {
-      "title": "Pourquoi choisir OmniCare ?",
-      "subtitle": "Tout ce dont vous avez besoin pour prendre soin de votre santé.",
-      "consultation": {
-        "title": "Consultations médicales",
-        "description": "Prenez rendez-vous avec des professionnels de santé vérifiés"
-      },
-      "appointment": {
-        "title": "Prise de rendez-vous facile",
-        "description": "Réservez vos consultations en quelques clics, quand vous le souhaitez."
-      },
-      "professionals": {
-        "title": "Professionnels qualifiés",
-        "description": "Accédez à un réseau de professionnels de santé certifiés et expérimentés"
-      },
-      "secure": {
-        "title": "Sécurisé et confidentiel",
-        "description": "Vos données de santé sont protégées et confidentielles"
-      }
-    },
-    "cta": {
-      "title": "Prêt à commencer ?",
-      "subtitle": "Rejoignez OmniCare et profitez de toutes ces fonctionnalités.",
-      "button": "Créer un compte"
-    },
-    "mobileApp": {
-      "title": "Application mobile",
-      "description": "Gérez vos consultations et votre santé directement depuis votre smartphone."
-    },
     "meta": {
-      "title": "OmniCare — l’app santé made in Tunisia",
-      "description": "L’application OmniCare : vos soins à la demande, partout en Tunisie. Consultez des professionnels de santé vérifiés, prenez rendez-vous et suivez votre santé."
+      "title": "OmniCare — Vos soins. Tout au même endroit.",
+      "description": "Trouvez des professionnels de santé et gérez vos rendez-vous, votre dossier médical et votre assurance, le tout dans une seule application. OmniCare réunit tout."
     },
     "trust": {
       "confidentiality": "Confidentialité des données",
@@ -96,7 +74,6 @@
       "subtitle": "Chaque fonctionnalité est pensée pour un soin simple, rapide et en confiance.",
       "patientsTab": "Pour les patients",
       "professionalsTab": "Pour les professionnels",
-      "patientsIntro": "Retrouvez l’essentiel de votre santé dans l’app OmniCare.",
       "professionalsIntro": "Gérez votre activité et développez votre patientèle avec des outils conçus pour vous.",
       "screenLabels": {
         "dashboard": "Espace professionnel"
@@ -121,6 +98,10 @@
         "payment": {
           "title": "Paiement sécurisé",
           "description": "Réglez vos consultations en toute sécurité."
+        },
+        "insurance": {
+          "title": "Assurance",
+          "description": "Gérez votre assurance dans l'application."
         },
         "homeCare": {
           "title": "Soins à domicile",
@@ -151,35 +132,20 @@
         "pillOnboard": "Onboarding en 4 étapes",
         "pillVerified": "Profils vérifiés",
         "pillSchedule": "Emploi du temps libre"
-      }
-    },
-    "bento": {
-      "eyebrow": "Au quotidien",
-      "title": "Conçu pour votre santé, simplement",
-      "subtitle": "Une expérience claire, pensée pour un usage quotidien.",
-      "simple": {
-        "title": "Simple et rapide",
-        "description": "Une interface pensée pour l’essentiel."
       },
-      "secure": {
-        "title": "Sécurisé et confidentiel",
-        "description": "Vos données de santé sont protégées."
-      },
-      "available": {
-        "title": "À votre disposition",
-        "description": "Des soins à la demande, quand vous en avez besoin."
-      },
-      "qualified": {
-        "title": "Professionnels qualifiés",
-        "description": "Chaque profil est vérifié."
-      },
-      "tunisia": {
-        "title": "Partout en Tunisie",
-        "description": "Vos soins accessibles où que vous soyez."
-      },
-      "follow": {
-        "title": "Un suivi au quotidien",
-        "description": "Rappels et suivi personnalisé."
+      "highlights": {
+        "secure": {
+          "title": "Sécurisé et confidentiel",
+          "description": "Vos données de santé sont protégées."
+        },
+        "available": {
+          "title": "À votre disposition",
+          "description": "Des soins à la demande, quand vous en avez besoin."
+        },
+        "qualified": {
+          "title": "Professionnels qualifiés",
+          "description": "Chaque profil est vérifié."
+        }
       }
     },
     "how": {
@@ -226,8 +192,7 @@
       "title": "Rejoignez l’app et développez votre activité",
       "subtitle": "Médecins, infirmiers, psychologues, kinésithérapeutes : une solution conçue pour votre pratique.",
       "cta": "Je suis professionnel : demander mon accès",
-      "onboardingTitle": "Votre parcours d’accès",
-      "onboardingSubtitle": "Quatre étapes simples pour rejoindre OmniCare."
+      "onboardingTitle": "Votre parcours d’accès"
     },
     "faq": {
       "eyebrow": "Besoin d’aide ?",
@@ -282,7 +247,8 @@
     },
     "final": {
       "title": "Prêt à prendre soin de votre santé ?",
-      "subtitle": "Téléchargez l’app OmniCare et accédez à vos soins à la demande."
+      "subtitle": "Téléchargez l’app OmniCare et accédez à vos soins à la demande.",
+      "eyebrow": "Téléchargez OmniCare"
     }
   },
   "features": {
@@ -427,6 +393,10 @@
       "trust": {
         "title": "Confiance",
         "description": "Sécurité et confidentialité garanties"
+      },
+      "reach": {
+        "title": "Partout en Tunisie",
+        "description": "Vos soins accessibles où que vous soyez."
       }
     },
     "heroBadge": "Qui sommes-nous ?",
@@ -437,12 +407,10 @@
     "story1Alt": "Un téléphone et un stéthoscope : l’accès aux soins simplifié",
     "story2Title": "Notre solution",
     "story2Body": "Notre mission est de rapprocher patients et professionnels de santé grâce à une application mobile : consultations, prise de rendez-vous, dossier médical, ordonnances et suivi — pensés pour le quotidien des patients, mais aussi pour la pratique des professionnels.",
-    "story2Alt": "Gestion des rendez-vous depuis un smartphone",
     "story3Title": "Notre promesse",
     "story3Body": "Une santé accessible, moderne et efficace pour tous les Tunisiens. OmniCare, c’est la technologie au service de l’humain : des soins de qualité, où que vous soyez, quand vous en avez besoin.",
     "story3Alt": "Professionnelle de santé en consultation",
-    "valuesEyebrow": "Nos engagements",
-    "tunisiaAlt": "La Tunisie, où est conçue OmniCare"
+    "valuesEyebrow": "Nos engagements"
   },
   "contact": {
     "title": "Nous contacter",
@@ -582,5 +550,17 @@
     "subtitle": "La page que vous recherchez n’existe pas ou a été déplacée.",
     "backHome": "Retour à l’accueil",
     "goBack": "Page précédente"
+  },
+  "photos": {
+    "heroPatient": "Médecin souriante tenant un smartphone",
+    "lifestyleHome": "Patient utilisant l’application OmniCare au quotidien",
+    "proDoctor": "Médecin en consultation dans son cabinet",
+    "proNurse": "Infirmière s’occupant d’un patient",
+    "ctaFamily": "Famille utilisant l’application OmniCare",
+    "aboutMission": "Rendez-vous santé gérés depuis un smartphone",
+    "aboutTunisia": "La Tunisie, où est conçue OmniCare",
+    "contactHeader": "Patient contactant l’équipe OmniCare",
+    "proPsychologist": "Séance d'écoute avec une psychologue",
+    "proPhysio": "Séance de rééducation avec un kinésithérapeute"
   }
 }

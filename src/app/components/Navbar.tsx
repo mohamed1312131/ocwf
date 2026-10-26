@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
@@ -7,13 +7,70 @@ import logoImage from '../../assets/app_logo.png';
 import { LanguageSwitcher } from '../../components/LanguageSwitcher';
 import { CONTACT_EMAIL } from '../../config/appLinks';
 
-const links = [
+type NavLinkDef = {
+  href: string;
+  labelKey: string;
+  /** On the home page these items scroll to the matching deck slide instead. */
+  homeHash?: string;
+};
+
+const links: NavLinkDef[] = [
   { href: '/', labelKey: 'nav.home' },
-  { href: '/fonctionnalites', labelKey: 'nav.features' },
-  { href: '/professionnels', labelKey: 'nav.professionals' },
+  { href: '/fonctionnalites', labelKey: 'nav.features', homeHash: '#fonctionnalites' },
+  { href: '/professionnels', labelKey: 'nav.professionals', homeHash: '#professionnels' },
   { href: '/a-propos', labelKey: 'nav.about' },
   { href: '/contact', labelKey: 'nav.contact' },
 ];
+
+const desktopClass = (active: boolean) =>
+  `relative rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors after:absolute after:inset-x-3.5 after:-bottom-0.5 after:h-[2px] after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rtl:after:origin-right ${
+    active
+      ? 'text-primary-strong after:scale-x-100'
+      : 'text-text-secondary after:scale-x-0 hover:text-primary-strong hover:after:scale-x-100'
+  }`;
+
+const mobileClass = (active: boolean) =>
+  `rounded-lg px-4 py-3 text-base font-semibold transition-colors ${
+    active ? 'bg-[#1FBF9A]/10 text-primary-strong' : 'text-text-secondary hover:bg-mist hover:text-text-primary'
+  }`;
+
+/**
+ * Nav item. On the home page, items mapped to a deck slide render as in-page
+ * anchors (`#fonctionnalites`, `#professionnels`) which the deck turns into
+ * slide changes; elsewhere they keep routing to the dedicated pages.
+ */
+function NavItem({
+  link,
+  classNameFor,
+  onNavigate,
+}: {
+  link: NavLinkDef;
+  classNameFor: (active: boolean) => string;
+  onNavigate?: () => void;
+}) {
+  const { t } = useTranslation();
+  const { pathname, hash } = useLocation();
+
+  if (link.homeHash && pathname === '/') {
+    const active = hash === link.homeHash;
+    return (
+      <a
+        href={link.homeHash}
+        onClick={onNavigate}
+        aria-current={active ? 'page' : undefined}
+        className={classNameFor(active)}
+      >
+        {t(link.labelKey)}
+      </a>
+    );
+  }
+
+  return (
+    <NavLink to={link.href} onClick={onNavigate} className={({ isActive }) => classNameFor(isActive)}>
+      {t(link.labelKey)}
+    </NavLink>
+  );
+}
 
 export function Navbar() {
   const { t } = useTranslation();
@@ -68,19 +125,7 @@ export function Navbar() {
         {/* Desktop links */}
         <div className="hidden items-center gap-1 lg:flex">
           {links.map((link) => (
-            <NavLink
-              key={link.href}
-              to={link.href}
-              className={({ isActive }) =>
-                `relative rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors after:absolute after:inset-x-3.5 after:-bottom-0.5 after:h-[2px] after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rtl:after:origin-right ${
-                  isActive
-                    ? 'text-primary-strong after:scale-x-100'
-                    : 'text-text-secondary after:scale-x-0 hover:text-primary-strong hover:after:scale-x-100'
-                }`
-              }
-            >
-              {t(link.labelKey)}
-            </NavLink>
+            <NavItem key={link.href} link={link} classNameFor={desktopClass} />
           ))}
         </div>
 
@@ -124,18 +169,12 @@ export function Navbar() {
           >
             <div className="flex max-h-[calc(100dvh-5rem)] flex-col gap-1 overflow-y-auto px-4 py-4">
               {links.map((link) => (
-                <NavLink
+                <NavItem
                   key={link.href}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={({ isActive }) =>
-                    `rounded-lg px-4 py-3 text-base font-semibold transition-colors ${
-                      isActive ? 'bg-[#1FBF9A]/10 text-primary-strong' : 'text-text-secondary hover:bg-mist hover:text-text-primary'
-                    }`
-                  }
-                >
-                  {t(link.labelKey)}
-                </NavLink>
+                  link={link}
+                  classNameFor={mobileClass}
+                  onNavigate={() => setIsOpen(false)}
+                />
               ))}
               <Link
                 to="/pre-inscription"

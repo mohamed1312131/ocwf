@@ -1,8 +1,12 @@
 import {
   ArrowRight,
+  BadgeCheck,
   Bell,
   CalendarCheck,
   FolderHeart,
+  LockKeyhole,
+  MapPin,
+  Stethoscope,
 } from 'lucide-react';
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'motion/react';
 import type { PointerEvent as ReactPointerEvent } from 'react';
@@ -10,6 +14,7 @@ import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { StoreBadges } from '../StoreBadges';
 import { PhoneMockup } from '../PhoneMockup';
+import { Photo } from '../Photo';
 import { Magnetic } from '../motion/Magnetic';
 import { EASE } from '../../../lib/motion';
 import { patientFeatures } from '../../../config/features';
@@ -87,6 +92,12 @@ const FLOAT_CARDS = [
   { key: 'record', icon: FolderHeart, pos: '-bottom-4 right-2 lg:-bottom-10 lg:right-10', delay: 1.6, y: 7 },
 ] as const;
 
+const TRUST_CHIPS = [
+  { icon: LockKeyhole, key: 'home.trust.confidentiality' },
+  { icon: BadgeCheck, key: 'home.trust.verified' },
+  { icon: MapPin, key: 'home.trust.madeIn' },
+] as const;
+
 export function Hero() {
   const { t } = useTranslation();
   const reduce = useReducedMotion();
@@ -117,97 +128,135 @@ export function Hero() {
     >
       <AnimatedBackground />
 
-      <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-[1200px] items-center gap-14 px-6 pb-48 pt-32 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-4 lg:px-10 lg:pb-56 lg:pt-40">
-        {/* Copy */}
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-          <motion.span
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: EASE }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-base font-semibold backdrop-blur"
-          >
-            <span className="h-2.5 w-2.5 rounded-full bg-[#6BE3B2]" />
-            {t('home.hero.eyebrow')}
-          </motion.span>
+      <div className="relative z-10 flex min-h-screen flex-col">
+        <div className="mx-auto grid w-full max-w-[1200px] flex-1 items-center gap-12 px-6 pb-10 pt-32 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-4 lg:px-10 lg:pb-14 lg:pt-40">
+          {/* Copy */}
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <motion.span
+              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: EASE }}
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-base font-semibold backdrop-blur"
+            >
+              <span className="h-2.5 w-2.5 rounded-full bg-[#6BE3B2]" />
+              {t('home.hero.eyebrow')}
+            </motion.span>
 
-          <div className="mt-7">
-            <Headline text={t('home.hero.title')} />
+            <div className="mt-7">
+              <Headline text={t('home.hero.title')} />
+            </div>
+
+            <motion.p
+              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.7, ease: EASE }}
+              className="mt-6 max-w-xl text-xl leading-relaxed text-white/90 sm:text-2xl"
+            >
+              {t('home.hero.subtitle')}
+            </motion.p>
+
+            <motion.div
+              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55, duration: 0.7, ease: EASE }}
+              className="mt-9 flex w-full flex-col items-center gap-5 lg:items-start"
+            >
+              <StoreBadges size="xl" />
+              <Magnetic>
+                <Link
+                  to="/pre-inscription"
+                  className="group inline-flex items-center gap-2 rounded-2xl border-2 border-white/70 bg-white/5 px-7 py-3.5 text-base font-semibold backdrop-blur transition-colors hover:bg-white hover:text-primary-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#06282C]"
+                >
+                  {t('home.hero.proCta')}
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100" aria-hidden="true" />
+                </Link>
+              </Magnetic>
+            </motion.div>
           </div>
 
-          <motion.p
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.7, ease: EASE }}
-            className="mt-6 max-w-xl text-xl leading-relaxed text-white/90 sm:text-2xl"
-          >
-            {t('home.hero.subtitle')}
-          </motion.p>
-
-          <motion.div
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55, duration: 0.7, ease: EASE }}
-            className="mt-9 flex w-full flex-col items-center gap-5 lg:items-start"
-          >
-            <StoreBadges size="xl" />
-            <Magnetic>
-              <Link
-                to="/pre-inscription"
-                className="group inline-flex items-center gap-2 rounded-2xl border-2 border-white/70 bg-white/5 px-7 py-3.5 text-base font-semibold backdrop-blur transition-colors hover:bg-white hover:text-primary-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#06282C]"
-              >
-                {t('home.hero.proCta')}
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100" aria-hidden="true" />
-              </Link>
-            </Magnetic>
-          </motion.div>
-        </div>
-
-        {/* Phone + floating cards */}
-        <div className="relative mx-auto w-full">
-          <motion.div
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 48, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 90, damping: 16, delay: 0.35 }}
-          >
-            <div className="mx-auto w-[315px] sm:w-[372px] lg:w-[401px]">
-              <motion.div
-                style={{ x: phoneX, y: phoneY }}
-                className="scale-[1.15] origin-top-center rotate-2 sm:scale-[1.28] sm:rotate-1 lg:scale-[1.38] lg:rotate-[1.5deg]"
-              >
-                <PhoneMockup screens={screens} intervalMs={4500} />
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Floating cards */}
-          {FLOAT_CARDS.map((card) => (
+          {/* Photo + phone */}
+          <div className="relative mx-auto w-full">
             <motion.div
-              key={card.key}
-              className={`absolute z-10 hidden md:block ${card.pos}`}
-              style={{ x: cardX, y: cardY }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: card.delay, duration: 0.6, ease: EASE }}
+              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 48, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ type: 'spring', stiffness: 90, damping: 16, delay: 0.35 }}
             >
-              <motion.div
-                animate={reduce ? undefined : { y: [0, -card.y, 0] }}
-                transition={{ duration: 5 + card.delay, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/90 px-4 py-3 shadow-elevated backdrop-blur">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1FBF9A]/15 text-primary-strong">
-                    <card.icon className="h-4.5 w-4.5" aria-hidden="true" />
-                  </span>
-                  <span className="flex flex-col items-start">
-                    <span className="text-sm font-bold text-neutral-900">{t(`home.hero.cards.${card.key}.label`)}</span>
-                    <span className="text-xs text-neutral-500">{t(`home.hero.cards.${card.key}.sub`)}</span>
-                  </span>
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+              <div className="relative mx-auto w-[315px] pt-32 sm:w-[372px] sm:pt-36 lg:w-[401px] lg:pt-40">
+                {/* Photo peeking out from behind the phone */}
+                <motion.div
+                  initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5, duration: 0.7, ease: EASE }}
+                  className="absolute inset-x-0 top-0"
+                >
+                  <Photo
+                    id="hero-patient"
+                    altKey="photos.heroPatient"
+                    icon={Stethoscope}
+                    eager
+                    className="aspect-[16/11] rotate-[-1.5deg] rounded-3xl shadow-[0_40px_90px_-40px_rgba(0,0,0,0.75)]"
+                    imgClassName="object-[50%_22%]"
+                  />
+                </motion.div>
 
-      </section>
+                <motion.div
+                  style={{ x: phoneX, y: phoneY }}
+                  className="relative origin-top rotate-2 scale-[1.15] sm:rotate-1 sm:scale-[1.28] lg:rotate-[1.5deg] lg:scale-[1.38]"
+                >
+                  <PhoneMockup screens={screens} intervalMs={4500} />
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Floating cards */}
+            {FLOAT_CARDS.map((card) => (
+              <motion.div
+                key={card.key}
+                className={`absolute z-10 hidden md:block ${card.pos}`}
+                style={{ x: cardX, y: cardY }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: card.delay, duration: 0.6, ease: EASE }}
+              >
+                <motion.div
+                  animate={reduce ? undefined : { y: [0, -card.y, 0] }}
+                  transition={{ duration: 5 + card.delay, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/90 px-4 py-3 shadow-elevated backdrop-blur">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1FBF9A]/15 text-primary-strong">
+                      <card.icon className="h-4.5 w-4.5" aria-hidden="true" />
+                    </span>
+                    <span className="flex flex-col items-start">
+                      <span className="text-sm font-bold text-neutral-900">{t(`home.hero.cards.${card.key}.label`)}</span>
+                      <span className="text-xs text-neutral-500">{t(`home.hero.cards.${card.key}.sub`)}</span>
+                    </span>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Trust chips folded into the hero */}
+        <motion.div
+          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.6, ease: EASE }}
+          className="relative z-20 mx-auto w-full max-w-[1200px] px-6 pb-24 sm:px-8 lg:px-10 lg:pb-32"
+        >
+          <ul className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:justify-start">
+            {TRUST_CHIPS.map((chip) => (
+              <li
+                key={chip.key}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#06282C]/55 px-4 py-2 text-sm font-semibold text-white backdrop-blur sm:text-base"
+              >
+                <chip.icon className="h-4 w-4 text-[#6BE3B2]" aria-hidden="true" />
+                {t(chip.key)}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </div>
+    </section>
   );
 }

@@ -9,6 +9,7 @@ import { Accordion } from '../components/Accordion';
 import type { AccordionItem } from '../components/Accordion';
 import { Stagger, StaggerItem } from '../components/motion/Stagger';
 import { Reveal } from '../components/motion/Reveal';
+import { Photo } from '../components/Photo';
 import { professionalFeatures } from '../../config/features';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
@@ -32,6 +33,7 @@ export function Professionals() {
         eyebrow={t('home.pro.eyebrow')}
         title={t('professionals.hero.title')}
         subtitle={t('home.pro.subtitle')}
+        image={{ id: 'pro-doctor', altKey: 'photos.proDoctor' }}
       >
         <Link
           to="/pre-inscription"
@@ -49,7 +51,7 @@ export function Professionals() {
       </PageHero>
 
       {/* Professions */}
-      <Section className="bg-white py-28 lg:py-32">
+      <Section className="bg-white py-20 lg:py-24">
         <SectionHeading eyebrow={t('professionals.professionsEyebrow')} title={t('professionals.professionsTitle')} subtitle={t('professionals.professionsSubtitle')} />
         <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {professions.map((p) => (
@@ -69,7 +71,7 @@ export function Professionals() {
       </Section>
 
       {/* How it works */}
-      <Section className="bg-mist py-28 lg:py-32">
+      <Section className="bg-mist py-20 lg:py-24">
         <SectionHeading eyebrow={t('home.how.eyebrow')} title={t('home.how.title')} subtitle={t('home.how.professionalsTitle')} />
         <Stagger className="mx-auto mt-12 grid max-w-5xl gap-5 sm:grid-cols-2">
           {[1, 2, 3, 4].map((n) => (
@@ -89,25 +91,35 @@ export function Professionals() {
       </Section>
 
       {/* Benefits */}
-      <Section className="bg-white py-28 lg:py-32">
+      <Section className="bg-white py-20 lg:py-24">
         <SectionHeading eyebrow={t('home.pro.eyebrow')} title={t('professionals.benefits.title')} subtitle={t('home.showcase.subtitle')} />
-        <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {professionalFeatures.map((f) => (
-            <StaggerItem key={f.id} className="h-full">
-              <div className="flex h-full flex-col rounded-3xl bg-mist p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-28px_rgba(15,111,115,0.45)]">
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-primary-strong shadow-card">
-                  <f.icon className="h-7 w-7" aria-hidden="true" />
-                </span>
-                <div className="mt-5 text-xl font-bold text-text-primary">{t(f.titleKey)}</div>
-                <div className="mt-2 text-base text-text-secondary">{t(f.descKey)}</div>
-              </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
+        <div className="mt-12 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-stretch lg:gap-16">
+          <Stagger className="grid gap-5 sm:grid-cols-2">
+            {professionalFeatures.map((f) => (
+              <StaggerItem key={f.id} className="h-full">
+                <div className="flex h-full flex-col rounded-3xl bg-mist p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-28px_rgba(15,111,115,0.45)]">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-primary-strong shadow-card">
+                    <f.icon className="h-7 w-7" aria-hidden="true" />
+                  </span>
+                  <div className="mt-5 text-xl font-bold text-text-primary">{t(f.titleKey)}</div>
+                  <div className="mt-2 text-base text-text-secondary">{t(f.descKey)}</div>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+          <Reveal delay={0.1} className="h-full">
+            <Photo
+              id="pro-nurse"
+              altKey="photos.proNurse"
+              className="aspect-[4/5] rounded-3xl shadow-elevated lg:aspect-auto lg:h-full lg:min-h-[24rem]"
+              imgClassName="object-[50%_25%]"
+            />
+          </Reveal>
+        </div>
       </Section>
 
       {/* FAQ */}
-      <Section className="bg-mist py-28 lg:py-32">
+      <Section className="bg-mist py-20 lg:py-24">
         <SectionHeading eyebrow={t('home.faq.eyebrow')} title={t('home.faq.title')} subtitle={t('home.faq.subtitle')} />
         <div className="mx-auto mt-12 max-w-3xl">
           <Reveal>

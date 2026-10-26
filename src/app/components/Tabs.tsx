@@ -10,20 +10,29 @@ interface TabsProps {
   active: string;
   onChange: (id: string) => void;
   className?: string;
+  /** Stable id prefix so callers can wire `role="tabpanel"` via `${idPrefix}-panel-${id}`. */
+  idPrefix?: string;
+  /** Accessible name for the tablist. */
+  ariaLabel?: string;
 }
 
 /**
- * Accessible tablist (ARIA tabs pattern, arrow-key navigation).
- * Tabs render as a segmented control — content switching is the caller's job.
+ * Accessible tablist (ARIA tabs pattern, arrow-key navigation). Arrow keys are
+ * mirrored in RTL so `Left`/`Right` follow the visual order. Tabs render as a
+ * segmented control — content switching is the caller's job.
  */
-export function Tabs({ tabs, active, onChange, className = '' }: TabsProps) {
-  const baseId = useId().replace(/:/g, '');
+export function Tabs({ tabs, active, onChange, className = '', idPrefix, ariaLabel }: TabsProps) {
+  const reactId = useId();
+  const baseId = (idPrefix ?? reactId).replace(/:/g, '');
+  const rtl = typeof document !== 'undefined' && document.documentElement.dir === 'rtl';
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     const idx = tabs.findIndex((t) => t.id === active);
+    const nextKey = rtl ? 'ArrowLeft' : 'ArrowRight';
+    const prevKey = rtl ? 'ArrowRight' : 'ArrowLeft';
     let next = -1;
-    if (e.key === 'ArrowRight') next = (idx + 1) % tabs.length;
-    else if (e.key === 'ArrowLeft') next = (idx - 1 + tabs.length) % tabs.length;
+    if (e.key === nextKey) next = (idx + 1) % tabs.length;
+    else if (e.key === prevKey) next = (idx - 1 + tabs.length) % tabs.length;
     else if (e.key === 'Home') next = 0;
     else if (e.key === 'End') next = tabs.length - 1;
     if (next >= 0) {
@@ -36,7 +45,7 @@ export function Tabs({ tabs, active, onChange, className = '' }: TabsProps) {
   return (
     <div
       role="tablist"
-      aria-label="Sections de fonctionnalités"
+      aria-label={ariaLabel ?? 'Onglets'}
       onKeyDown={onKeyDown}
       className={`inline-flex items-center gap-1 rounded-full bg-mist p-1 ${className}`}
     >

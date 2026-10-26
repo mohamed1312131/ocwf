@@ -10,6 +10,7 @@ import {
   HeartPulse,
   Home as HomeIcon,
   Pill,
+  ShieldCheck,
   Stethoscope,
   UserPlus,
   Users,
@@ -64,6 +65,13 @@ export const patientFeatures: FeatureItem[] = [
     icon: CreditCard,
     titleKey: 'home.showcase.features.payment.title',
     descKey: 'home.showcase.features.payment.description',
+  },
+  {
+    id: 'insurance',
+    screen: 'insurance',
+    icon: ShieldCheck,
+    titleKey: 'home.showcase.features.insurance.title',
+    descKey: 'home.showcase.features.insurance.description',
   },
   {
     id: 'homeCare',

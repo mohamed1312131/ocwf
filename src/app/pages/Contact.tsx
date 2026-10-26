@@ -98,9 +98,14 @@ export function Contact() {
 
   return (
     <>
-      <PageHero eyebrow={t('contact.heroBadge')} title={t('contact.title')} subtitle={t('contact.subtitle')} />
+      <PageHero
+        eyebrow={t('contact.heroBadge')}
+        title={t('contact.title')}
+        subtitle={t('contact.subtitle')}
+        image={{ id: 'contact-header', altKey: 'photos.contactHeader' }}
+      />
 
-      <Section className="bg-mist py-28 lg:py-32">
+      <Section className="bg-mist py-20 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Info */}
           <div className="space-y-5">
@@ -187,7 +192,7 @@ export function Contact() {
       </Section>
 
       {/* FAQ */}
-      <Section className="bg-white py-28 lg:py-32">
+      <Section className="bg-white py-20 lg:py-24">
         <SectionHeading eyebrow={t('home.faq.eyebrow')} title={t('contact.faq.title')} subtitle={t('contact.faq.subtitle')} />
         <div className="mx-auto mt-12 max-w-3xl">
           <Reveal>

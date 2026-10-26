@@ -72,10 +72,10 @@ export function PreInscription() {
   }, [step]);
 
   const professions: RadioOption[] = [
-    { value: 'medecin', label: t('preInscription.doctor'), icon: Stethoscope },
-    { value: 'infirmier', label: t('preInscription.nurse'), icon: Syringe },
-    { value: 'psychologue', label: t('preInscription.psychologist'), icon: Brain },
-    { value: 'kinesitherapeute', label: t('preInscription.physiotherapist'), icon: Bone },
+    { value: 'medecin', label: t('preInscription.doctor'), icon: Stethoscope, photoId: 'pro-doctor' },
+    { value: 'infirmier', label: t('preInscription.nurse'), icon: Syringe, photoId: 'pro-nurse' },
+    { value: 'psychologue', label: t('preInscription.psychologist'), icon: Brain, photoId: 'pro-psychologist' },
+    { value: 'kinesitherapeute', label: t('preInscription.physiotherapist'), icon: Bone, photoId: 'pro-physio' },
   ];
 
   const stepTitles = [
@@ -240,6 +240,7 @@ export function PreInscription() {
                           value={form.profession}
                           onChange={(v) => set('profession', v as Profession)}
                           error={errors.profession}
+                          avatarStyle="photo"
                         />
                         <UiOnlyFields form={form} errors={errors} set={set} t={t} />
                       </>
